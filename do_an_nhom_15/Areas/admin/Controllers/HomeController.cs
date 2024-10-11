@@ -2,17 +2,20 @@
 
 namespace do_an_nhom_15.Areas.admin.Controllers
 {
+    [Area("Admin")]
     public class HomeController : Controller
     {
-        [Area("Admin")]
         public IActionResult Index()
         {
             return View();
         }
-        [Area("Admin")]
         public IActionResult Button()
         { 
             return View(); 
+        }
+        public IActionResult Privacy()
+        {
+            return View();
         }
     }
 }

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -6,10 +6,6 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>3e298122-bdb9-4a4c-bcae-3ca40953750a</UserSecretsId>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Content Remove="Areas\admin\Views\Home\button.cshtml" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="elFinder.Net.Core" Version="1.5.0" />
@@ -29,12 +25,7 @@
   <ItemGroup>
     <Folder Include="Areas\admin\Data\" />
     <Folder Include="Areas\admin\Models\" />
-    <Folder Include="Areas\admin\Views\Home\" />
 
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="Areas\admin\Views\Home\Button.cshtml" />
   </ItemGroup>
 
 </Project>

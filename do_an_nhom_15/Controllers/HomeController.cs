@@ -17,12 +17,30 @@ namespace do_an_nhom_15.Controllers
         {
             return View();
         }
-
-        public IActionResult Privacy()
+        public IActionResult About()
         {
             return View();
         }
-
+        public IActionResult Menu()
+        {
+            return View();
+        }
+        public IActionResult Contact()
+        {
+            return View();
+        }
+        public IActionResult Reservation()
+        {
+            return View();
+        }
+        public IActionResult Service()
+        {
+            return View();
+        }
+        public IActionResult Testimonial()
+        {
+            return View();
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
