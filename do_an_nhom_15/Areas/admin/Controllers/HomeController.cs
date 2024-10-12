@@ -13,9 +13,6 @@ namespace do_an_nhom_15.Areas.admin.Controllers
         { 
             return View(); 
         }
-        public IActionResult Privacy()
-        {
-            return View();
-        }
+        
     }
 }
