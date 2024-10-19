@@ -65,7 +65,7 @@ For user use windowns:
 
 Run the following script to run an OpenAI API server locally. The server should run at port 8000
 
-``bash
+```bash
 ./server.sh
 ```
 
