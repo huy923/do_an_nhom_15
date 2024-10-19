@@ -1,6 +1,6 @@
-#This is group project 15 
+## This is group project 15 
 
-this project i was install all model need to run 
+This project i was install all model need to run 
 
 ## Prerequisites
 
@@ -74,7 +74,3 @@ or:
 ```bash
 python -m llama_cpp.server --model "./models/mistral-7b-openorca.Q4_0.gguf" --chat_format chatml --n_gpu_layers 1
 ```
-# do_an_nhom_15
-# do_an_nhom_15
-# do_an_nhom_15
-# do_an_nhom_15
