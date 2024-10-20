@@ -9,5 +9,6 @@ You are a helpful chatbot.
 what your name ?<|im_end|>
 <|im_start|>assistant""", max_tokens=500,  stop=["<|im_end|>"], stream=True)
 
+
 for token in output:
     print(token["choices"][0]["text"], end='', flush=True)
