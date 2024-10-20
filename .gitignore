@@ -9,7 +9,6 @@
 *.user
 *.userosscache
 *.sln.docstates
-
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
@@ -362,3 +361,4 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 
 /do_an_nhom_15/Models/Llama-3.2-1B-Instruct-Q6_K_L.gguf
+do_an_nhom_15/venv/
