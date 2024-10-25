@@ -5,7 +5,7 @@ namespace do_an_nhom_15.Models;
 
 public partial class OrderDetail
 {
-    public int OrderDetailsId { get; set; }
+    public int Id { get; set; }
 
     public int OrderId { get; set; }
 

@@ -15,14 +15,6 @@ public partial class Product
 
     public int Stock { get; set; }
 
-    public string Sku { get; set; } = null!;
-
-    public DateTime? CreatedAt { get; set; }
-
-    public DateTime? UpdatedAt { get; set; }
-
-    public bool? Active { get; set; }
-
     public int? CategoryId { get; set; }
 
     public string? ImageUrl { get; set; }
@@ -30,6 +22,4 @@ public partial class Product
     public virtual Category? Category { get; set; }
 
     public virtual ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
-
-    public virtual ICollection<Review> Reviews { get; set; } = new List<Review>();
 }

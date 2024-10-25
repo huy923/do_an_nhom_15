@@ -15,8 +15,6 @@ public partial class CoffeeShopDbContext : DbContext
     {
     }
 
-    public virtual DbSet<Account> Accounts { get; set; }
-
     public virtual DbSet<Category> Categories { get; set; }
 
     public virtual DbSet<Customer> Customers { get; set; }
@@ -29,55 +27,15 @@ public partial class CoffeeShopDbContext : DbContext
 
     public virtual DbSet<Product> Products { get; set; }
 
-    public virtual DbSet<Review> Reviews { get; set; }
-
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.UseSqlServer("Name=DefaultConnection");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Account>(entity =>
-        {
-            entity.HasKey(e => e.UserId).HasName("PK__Accounts__3213E83F52D27688");
-
-            entity.HasIndex(e => e.Username, "UQ__Accounts__F3DBC572E432EB51").IsUnique();
-
-            entity.Property(e => e.UserId).HasColumnName("user_id");
-            entity.Property(e => e.CreatedAt)
-                .HasDefaultValueSql("(getdate())")
-                .HasColumnType("datetime")
-                .HasColumnName("created_at");
-            entity.Property(e => e.CustomerId).HasColumnName("customer_id");
-            entity.Property(e => e.PasswordHash)
-                .HasMaxLength(255)
-                .IsUnicode(false)
-                .HasColumnName("password_hash");
-            entity.Property(e => e.Role)
-                .HasMaxLength(50)
-                .IsUnicode(false)
-                .HasDefaultValue("customer")
-                .HasColumnName("role");
-            entity.Property(e => e.Username)
-                .HasMaxLength(100)
-                .IsUnicode(false)
-                .HasColumnName("username");
-
-            entity.HasOne(d => d.Customer).WithMany(p => p.Accounts)
-                .HasForeignKey(d => d.CustomerId)
-                .HasConstraintName("FK__Accounts__custom__6C190EBB");
-        });
-
         modelBuilder.Entity<Category>(entity =>
         {
-            entity.HasKey(e => e.CategoriesId).HasName("PK__Categori__3213E83F5C9DB921");
+            entity.HasKey(e => e.CategoriesId).HasName("PK__Categori__EFF90790A46667D6");
 
-            entity.Property(e => e.CategoriesId).HasColumnName("Categories_id");
-            entity.Property(e => e.Active)
-                .HasDefaultValue(true)
-                .HasColumnName("active");
-            entity.Property(e => e.Description)
-                .HasColumnType("text")
-                .HasColumnName("description");
             entity.Property(e => e.Name)
                 .HasMaxLength(100)
                 .IsUnicode(false)
@@ -86,26 +44,19 @@ public partial class CoffeeShopDbContext : DbContext
 
         modelBuilder.Entity<Customer>(entity =>
         {
-            entity.HasKey(e => e.CustomersId).HasName("PK__Customer__3213E83F8ED31A08");
+            entity.HasKey(e => e.Id).HasName("PK__Customer__3213E83F95FECAEA");
 
-            entity.HasIndex(e => e.Email, "UQ__Customer__AB6E616487CE98D8").IsUnique();
+            entity.HasIndex(e => e.Email, "UQ__Customer__AB6E616498505315").IsUnique();
 
-            entity.Property(e => e.CustomersId).HasColumnName("customers_id");
+            entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.Address)
                 .HasMaxLength(255)
                 .IsUnicode(false)
                 .HasColumnName("address");
-            entity.Property(e => e.CreatedAt)
-                .HasDefaultValueSql("(getdate())")
-                .HasColumnType("datetime")
-                .HasColumnName("created_at");
             entity.Property(e => e.Email)
                 .HasMaxLength(100)
                 .IsUnicode(false)
                 .HasColumnName("email");
-            entity.Property(e => e.LoyaltyPoints)
-                .HasDefaultValue(0)
-                .HasColumnName("loyalty_points");
             entity.Property(e => e.Name)
                 .HasMaxLength(100)
                 .IsUnicode(false)
@@ -118,9 +69,9 @@ public partial class CoffeeShopDbContext : DbContext
 
         modelBuilder.Entity<Order>(entity =>
         {
-            entity.HasKey(e => e.OrdersId).HasName("PK__Orders__3213E83F18494371");
+            entity.HasKey(e => e.Id).HasName("PK__Orders__3213E83F27EB73A1");
 
-            entity.Property(e => e.OrdersId).HasColumnName("orders_id");
+            entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.CustomerId).HasColumnName("customer_id");
             entity.Property(e => e.OrderDate)
                 .HasDefaultValueSql("(getdate())")
@@ -130,11 +81,6 @@ public partial class CoffeeShopDbContext : DbContext
                 .HasMaxLength(255)
                 .IsUnicode(false)
                 .HasColumnName("shipping_address");
-            entity.Property(e => e.ShippingStatus)
-                .HasMaxLength(50)
-                .IsUnicode(false)
-                .HasDefaultValue("pending")
-                .HasColumnName("shipping_status");
             entity.Property(e => e.Status)
                 .HasMaxLength(50)
                 .IsUnicode(false)
@@ -147,14 +93,14 @@ public partial class CoffeeShopDbContext : DbContext
             entity.HasOne(d => d.Customer).WithMany(p => p.Orders)
                 .HasForeignKey(d => d.CustomerId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Orders__customer__71D1E811");
+                .HasConstraintName("FK__Orders__customer__403A8C7D");
         });
 
         modelBuilder.Entity<OrderDetail>(entity =>
         {
-            entity.HasKey(e => e.OrderDetailsId).HasName("PK__OrderDet__3213E83FABB738AF");
+            entity.HasKey(e => e.Id).HasName("PK__OrderDet__3213E83F0F18975C");
 
-            entity.Property(e => e.OrderDetailsId).HasColumnName("orderDetails_id");
+            entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.OrderId).HasColumnName("order_id");
             entity.Property(e => e.Price)
                 .HasColumnType("decimal(10, 2)")
@@ -165,19 +111,18 @@ public partial class CoffeeShopDbContext : DbContext
             entity.HasOne(d => d.Order).WithMany(p => p.OrderDetails)
                 .HasForeignKey(d => d.OrderId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__OrderDeta__order__74AE54BC");
+                .HasConstraintName("FK__OrderDeta__order__4316F928");
 
             entity.HasOne(d => d.Product).WithMany(p => p.OrderDetails)
                 .HasForeignKey(d => d.ProductId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__OrderDeta__produ__75A278F5");
+                .HasConstraintName("FK__OrderDeta__produ__440B1D61");
         });
 
         modelBuilder.Entity<Payment>(entity =>
         {
-            entity.HasKey(e => e.PayId).HasName("PK__Payments__3213E83FC322ADFE");
+            entity.HasKey(e => e.PaymentsId).HasName("PK__Payments__FD75744A25A8081C");
 
-            entity.Property(e => e.PayId).HasColumnName("pay_id");
             entity.Property(e => e.OrderId).HasColumnName("order_id");
             entity.Property(e => e.PaymentDate)
                 .HasDefaultValueSql("(getdate())")
@@ -196,22 +141,14 @@ public partial class CoffeeShopDbContext : DbContext
             entity.HasOne(d => d.Order).WithMany(p => p.Payments)
                 .HasForeignKey(d => d.OrderId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Payments__order___7A672E12");
+                .HasConstraintName("FK__Payments__order___48CFD27E");
         });
 
         modelBuilder.Entity<Product>(entity =>
         {
-            entity.HasKey(e => e.ProductsId).HasName("PK__Products__3213E83F09D23298");
+            entity.HasKey(e => e.ProductsId).HasName("PK__Products__BB48EDE55B99F79C");
 
-            entity.Property(e => e.ProductsId).HasColumnName("products_id");
-            entity.Property(e => e.Active)
-                .HasDefaultValue(true)
-                .HasColumnName("active");
             entity.Property(e => e.CategoryId).HasColumnName("category_id");
-            entity.Property(e => e.CreatedAt)
-                .HasDefaultValueSql("(getdate())")
-                .HasColumnType("datetime")
-                .HasColumnName("created_at");
             entity.Property(e => e.Description)
                 .HasColumnType("text")
                 .HasColumnName("description");
@@ -226,46 +163,11 @@ public partial class CoffeeShopDbContext : DbContext
             entity.Property(e => e.Price)
                 .HasColumnType("decimal(10, 2)")
                 .HasColumnName("price");
-            entity.Property(e => e.Sku)
-                .HasMaxLength(50)
-                .IsUnicode(false)
-                .HasColumnName("sku");
             entity.Property(e => e.Stock).HasColumnName("stock");
-            entity.Property(e => e.UpdatedAt)
-                .HasDefaultValueSql("(getdate())")
-                .HasColumnType("datetime")
-                .HasColumnName("updated_at");
 
             entity.HasOne(d => d.Category).WithMany(p => p.Products)
                 .HasForeignKey(d => d.CategoryId)
-                .HasConstraintName("FK__Products__catego__619B8048");
-        });
-
-        modelBuilder.Entity<Review>(entity =>
-        {
-            entity.HasKey(e => e.Id).HasName("PK__Reviews__3213E83FB03F8FFC");
-
-            entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.Comment)
-                .HasColumnType("text")
-                .HasColumnName("comment");
-            entity.Property(e => e.CustomerId).HasColumnName("customer_id");
-            entity.Property(e => e.ProductId).HasColumnName("product_id");
-            entity.Property(e => e.Rating).HasColumnName("rating");
-            entity.Property(e => e.ReviewDate)
-                .HasDefaultValueSql("(getdate())")
-                .HasColumnType("datetime")
-                .HasColumnName("review_date");
-
-            entity.HasOne(d => d.Customer).WithMany(p => p.Reviews)
-                .HasForeignKey(d => d.CustomerId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Reviews__custome__00200768");
-
-            entity.HasOne(d => d.Product).WithMany(p => p.Reviews)
-                .HasForeignKey(d => d.ProductId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Reviews__product__7F2BE32F");
+                .HasConstraintName("FK__Products__catego__38996AB5");
         });
 
         OnModelCreatingPartial(modelBuilder);

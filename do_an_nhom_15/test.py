@@ -1,6 +1,6 @@
 from llama_cpp import Llama
 
-llm = Llama(model_path="./Models/Llama-3.2-1B-Instruct-Q5_K_M.gguf",n_gpu_layers=1, n_ctx=4096)
+llm = Llama(model_path="./Models/Llama-3.2-1B-Instruct-Q6_K_L.gguf",n_gpu_layers=1, n_ctx=4096)
 
 output = llm.create_completion("""<|im_start|>system
 You are a helpful chatbot.

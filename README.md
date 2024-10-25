@@ -45,7 +45,13 @@ Please note that this is a simple setup meant for local development and testing.
 
 1. **Download model**
 
-Download `llama-3.2-1b-instruct-Q5_K_M.gguf` from here <https://huggingface.co/argearriojas/Llama-3.2-1B-Instruct-Q5_K_M-GGUF/blob/main/llama-3.2-1b-instruct-q5_k_m.gguf> and put into the `Models` folder
+Download `llama-3.2-1b-instruct-Q6_K_L.gguf` from here <https://huggingface.co/bartowski/Llama-3.2-1B-Instruct-GGUF/blob/main/Llama-3.2-1B-Instruct-Q6_K_L.gguf> and put into the `Models` folder
+
+2. **Create file venv**
+
+Befo
+
+python install -r model.txt
 
 2. **Change to venv**
 

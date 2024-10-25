@@ -5,7 +5,7 @@ namespace do_an_nhom_15.Models;
 
 public partial class Payment
 {
-    public int PayId { get; set; }
+    public int PaymentsId { get; set; }
 
     public int OrderId { get; set; }
 

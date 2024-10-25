@@ -5,7 +5,7 @@ namespace do_an_nhom_15.Models;
 
 public partial class Order
 {
-    public int OrdersId { get; set; }
+    public int Id { get; set; }
 
     public int CustomerId { get; set; }
 
@@ -15,9 +15,7 @@ public partial class Order
 
     public decimal? TotalAmount { get; set; }
 
-    public string? ShippingAddress { get; set; }
-
-    public string? ShippingStatus { get; set; }
+    public string ShippingAddress { get; set; } = null!;
 
     public virtual Customer Customer { get; set; } = null!;
 
