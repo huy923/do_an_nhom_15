@@ -16,11 +16,10 @@ namespace do_an_nhom_15.Controllers
             {
                 ProductList = [.. _context.Products]
             };
-			return View(product); 
+			      return View(product);
         }
 
         public IActionResult Menu(){return View();}
-
         public IActionResult Product_single(){return View();}
         public IActionResult Services(){return View();}
         public IActionResult Blog(){return View();}
@@ -32,5 +31,5 @@ namespace do_an_nhom_15.Controllers
         public IActionResult Shop(){return View();}
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error(){return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });}
-    
+    }
 }
