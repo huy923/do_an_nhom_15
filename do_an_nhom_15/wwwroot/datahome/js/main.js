@@ -296,3 +296,18 @@
 
 })(jQuery);
 
+function toggleIcon() {
+    const button = document.getElementById("iconButton");
+    const icon = button.querySelector("i");
+    const showChatbot = document.getElementById("showChatbot");
+
+    if (icon.classList.contains("bi-chat-right")) {
+        icon.classList.remove("bi-chat-right");
+        icon.classList.add("bi-x-lg");
+        showChatbot.classList.remove("d-none");
+    } else {
+        icon.classList.remove("bi-x-lg");
+        icon.classList.add("bi-chat-right");
+        showChatbot.classList.add("d-none");
+    }
+}
