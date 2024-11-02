@@ -24,7 +24,6 @@
   <script src="~/files/tailwind.js"></script>
   <script src="~/files/vue.global.js"></script>
   <script src="~/files/axios.min.js"></script>
-  @* <link rel="stylesheet" href="~/datahome/css/bootstrap-icons.min.css"> *@
 </head>
 
 <body>
@@ -37,7 +36,7 @@
       </button>
       <div class="collapse navbar-collapse" id="ftco-nav">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item active"><a href="index" class="nav-link">Home</a></li>
+          <li class="nav-item active"><a href="/home/index" class="nav-link">Home</a></li>
           <li class="nav-item"><a href="/home/menu" class="nav-link">Menu</a></li>
           <li class="nav-item"><a href="/home/services" class="nav-link">Services</a></li>
           <li class="nav-item"><a href="/home/blog" class="nav-link">Blog</a></li>
@@ -141,10 +140,11 @@
     </div>
   </footer>
   @* chatbox *@
-  <button class="position-fixed btn btn-primary p-3" style="right: 40px; bottom:45px;width:50px; border-radius: 50%;" onclick="toggleIcon()">
-    <i class="icon-chat_bubble text-white" id="change-icon-chat"></i>
+  <button id="iconButton" class="position-fixed btn btn-primary p-3 pr-4" style="right: 40px; bottom:45px;width:50px; border-radius: 50%;" onclick="toggleIcon()">
+    <i class="icon-chat_bubble text-white" style="font-size: 1.3rem;"></i>
+    @* <i class="icon-close text-white" style="font-size: 1.3rem;" id="change-icon-chat" ></i> *@
   </button>
-  <div id="showChatbot" >
+  <div id="showChatbot" class="d-none">
     <main id="app" class="position-fixed"
       style="bottom: 130px; right: 60px; width: 420px; border-radius: 20px;">
       <div class="bg-black" style="border-radius: 20px;">
@@ -160,8 +160,8 @@
                 width="32" height="32" alt="ChatGPT Icon">
             </div>
             <div class="flex-grow-1">
-              <p class="m-0 px-3 py-2 rounded"
-                :class="message.role === 'assistant' ? 'bg-light text-dark' : 'bg-primary text-white'">
+              <p class="m-0 px-3 py-2 rounded bg-primary text-white">
+                @* :class="message.role === 'assistant' ? 'bg-light text-dark' : 'bg-primary text-white'"> *@
                 {{ message.content }}
               </p>
             </div>
@@ -170,8 +170,8 @@
         <form v-on:submit.prevent="sendMessage" class="text-black">
           <div class="input-group border-top">
             <input type="text" v-model="userInput" placeholder="Type your message here..." class="form-control ml-3">
-            <button type="submit" class=" btn btn-primary text-black border-top p-3">
-              <i class="ion-ios-send" width="32" height="32"></i>
+            <button type="submit" class=" btn btn-primary text-black border-top p-3"  style=" border-bottom-right-radius: 20px;">
+              <i class="icon-send" style="font-size: large;"></i>
             </button>
           </div>
         </form>
