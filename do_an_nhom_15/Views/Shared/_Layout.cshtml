@@ -141,39 +141,43 @@
     </div>
   </footer>
   @* chatbox *@
-        <button class="position-fixed btn btn-success p-3" id="iconButton" onclick="toggleIcon()">
-            <i class="bi bi-chat-right text-white"  id="change-icon-chat"></i>
-          </button>
-        <div id="showChatbot">
-        <main id="app" class="position-fixed bg-light" style="bottom: 100px; right: 40px; width: 420px; border-radius: 15px;">
-            <div class="shadow rounded-mt ">
-                <header class="bg-primary text-center text-white py-3 rounded-top-3">
-                    <h2>Chatbox</h2>
-                </header>
-                <ul class="list-unstyled overflow-auto" style="height: 510px; padding: 15px 20px 70px;">
-                    <li v-for="message in messages" :key="message.id" class="d-flex mb-3" 
-                        :class="{ 'justify-content-end': message.role === 'user', 'justify-content-start': message.role === 'assistant' }">
-                        <div v-if="message.role === 'assistant'" class="flex-shrink-0 me-3">
-                            <img class="rounded-circle" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTagONv1r-0HPnlnWClF12amS_KdrPX83zlhcXHyek&s" width="32" height="32" alt="ChatGPT Icon">
-                        </div>
-                        <div class="flex-grow-1">
-                            <p class="m-0 px-3 py-2 rounded" :class="message.role === 'assistant' ? 'bg-light text-dark' : 'bg-primary text-white'">
-                                {{ message.content }}
-                            </p>
-                        </div>
-                    </li>
-                </ul>
-                <form v-on:submit.prevent="sendMessage" class="border-top">
-                    <div class="input-group">
-                        <input type="text" v-model="userInput" placeholder="Type your message here..." class="form-control">
-                        <button type="submit" class="btn btn-primary text-black">
-                            <ion-icon name="send-outline">h</ion-icon>
-                        </button>
-                    </div>
-                </form>
+  <button class="position-fixed btn btn-primary p-3" style="right: 40px; bottom:45px;width:50px; border-radius: 50%;" onclick="toggleIcon()">
+    <i class="icon-chat_bubble text-white" id="change-icon-chat"></i>
+  </button>
+  <div id="showChatbot" >
+    <main id="app" class="position-fixed"
+      style="bottom: 130px; right: 60px; width: 420px; border-radius: 20px;">
+      <div class="bg-black" style="border-radius: 20px;">
+        <header class="bg-primary text-center text-white py-3 " style="border-top-left-radius: 20px; border-top-right-radius: 20px;">
+          <h2>Chatbox</h2>
+        </header>
+        <ul class="list-unstyled overflow-auto" style="height: 510px; padding: 15px 20px 70px;">
+          <li v-for="message in messages" :key="message.id" class="d-flex mb-3"
+            :class="{ 'justify-content-end': message.role === 'user', 'justify-content-start': message.role === 'assistant' }">
+            <div v-if="message.role === 'assistant'" class="flex-shrink-0 me-3">
+              <img class="rounded-circle"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTagONv1r-0HPnlnWClF12amS_KdrPX83zlhcXHyek&s"
+                width="32" height="32" alt="ChatGPT Icon">
             </div>
-        </main>
-        </div>
+            <div class="flex-grow-1">
+              <p class="m-0 px-3 py-2 rounded"
+                :class="message.role === 'assistant' ? 'bg-light text-dark' : 'bg-primary text-white'">
+                {{ message.content }}
+              </p>
+            </div>
+          </li>
+        </ul>
+        <form v-on:submit.prevent="sendMessage" class="text-black">
+          <div class="input-group border-top">
+            <input type="text" v-model="userInput" placeholder="Type your message here..." class="form-control ml-3">
+            <button type="submit" class=" btn btn-primary text-black border-top p-3">
+              <i class="ion-ios-send" width="32" height="32"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+    </main>
+  </div>
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
       <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
