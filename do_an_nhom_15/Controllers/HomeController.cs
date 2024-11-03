@@ -17,6 +17,7 @@ namespace do_an_nhom_15.Controllers
                 ProductList = [.. _context.Products]
             };
             return View(product);
+            // return View();
         }
 
         public IActionResult Menu() { return View(); }
