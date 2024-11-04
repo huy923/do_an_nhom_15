@@ -1,28 +1,48 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authentication;
-namespace do_an_nhom_15.Areas.admin.Controllers
+using do_an_nhom_15.Models;
+namespace do_an_nhom_15.Areas
 {
     [Area("Admin")]
-    public class HomeController : Controller
+    public class HomeController(CoffeeShopDbContext context) : Controller
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
-        public IActionResult Button()
-        {
-            return View();
-        }
+        private readonly CoffeeShopDbContext _context = context;
+        public IActionResult Index(){return View();}
+        public IActionResult Button(){return View();}
         public IActionResult Typography(){return View();}
         public IActionResult Widget() { return View();}
         public IActionResult Table() { return View(); }
-        public IActionResult Signup() { return View("Signup",model:null); }
+        public IActionResult Signup() { return View(model:null); }
         public IActionResult Form() { return View(); }
-        public IActionResult Signin() {return View("Signin",model:null); }
+        public IActionResult Signin() {return View(model:null); }
         public IActionResult Element() { return View(); }
         public IActionResult Chart() { return View(); }
         public IActionResult Blank() { return View(); }
-        public IActionResult _404() { return View(); }
+        public IActionResult EmployeeManagement() {
+            ViewModel Employee = new()
+            {
+                EmployeeList = [.. _context.Employees],
+            };
+            return View(Employee);
+        }
+        [HttpPost]
+        public IActionResult Edit(Employee employee)
+        {
+            var existingEmployee = _context.Employees.FirstOrDefault(e => e.EmployeeId == employee.EmployeeId);
+
+            if (existingEmployee != null)
+            {
+                existingEmployee.FirstName = employee.FirstName;
+                existingEmployee.LastName = employee.LastName;
+                existingEmployee.Email = employee.Email;
+                existingEmployee.PhoneNumber = employee.PhoneNumber;
+                existingEmployee.Position = employee.Position;
+
+                _context.SaveChanges();
+
+                return RedirectToAction("EmployeeManagement", "Home");
+            }
+
+            return NotFound(); 
+        }
     }
 }

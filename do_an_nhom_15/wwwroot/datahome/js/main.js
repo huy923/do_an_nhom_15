@@ -299,7 +299,7 @@
 function toggleIcon() {
     const button = document.getElementById("iconButton");
     const icon = button.querySelector("i");
-    const showChatbot = document.getElementById("showChatbot");
+    const showChatbot = document.getElementById("showChatbot";
 
     if (icon.classList.contains("icon-chat_bubble")) {
         icon.classList.remove("icon-chat_bubble");
