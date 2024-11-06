@@ -55,18 +55,17 @@ Follow the guide here to install <https://www.python.org/downloads/> if your pc 
 3. **Create file venv**
 
 To create a new venv on python you need to run this first, but befo make sure that you 
+
 ```bash
 cd do_an_nhom_15
 ```
 and then run this
+
 ```bash
 python -m venv venv
 ```
-3. **install model**
-```
-python install -r model.txt
-```
-2. **Change to venv**
+
+3. **Change to venv**
 
 If you use Linux run this command
 
@@ -80,7 +79,14 @@ For user use windowns:
 venv\Scripts\activate
 ```
 
-3. **Run local OpenAI server**
+4. **install model**
+
+```bash
+pip install llama-cpp-python uvicorn git-filter-repo pydantic_settings starlette_context fastapi sse_starlette
+
+```
+
+5. **Run local OpenAI server**
 
 Run the following script to run an OpenAI API server locally. The server should run at port 8000
 
