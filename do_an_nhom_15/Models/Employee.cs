@@ -14,11 +14,13 @@ public partial class Employee
     [EmailAddress(ErrorMessage = "Invalid email format")]
     public string? Email { get; set; }
     [Phone(ErrorMessage = "Invalid phone number")]
+    [Required(ErrorMessage = "Position is required")]
     public string? PhoneNumber { get; set; }
     [Required(ErrorMessage = "Position is required")]
     public string? Position { get; set; }
 
     [Range(0, double.MaxValue, ErrorMessage = "Salary must be a positive value")]
+    [Required(ErrorMessage = "Salary is required")]
     public decimal? Salary { get; set; }
 
     public DateTime? HireDate { get; set; }

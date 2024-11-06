@@ -47,12 +47,20 @@ Please note that this is a simple setup meant for local development and testing.
 
 Download `llama-3.2-1b-instruct-Q6_K_L.gguf` from here <https://huggingface.co/bartowski/Llama-3.2-1B-Instruct-GGUF/blob/main/Llama-3.2-1B-Instruct-Q6_K_L.gguf> and put into the `Models` folder
 
+2. **Download python**
+
+Follow the guide here to install <https://www.python.org/downloads/> if your pc python is installed skipping this step 
+
 2. **Create file venv**
 
-Befo
-
+To create a new venv on python you need to run this first, but befo make sure that you 
+```bash
+python -m venv venv
+```
+3. **
+```
 python install -r model.txt
-
+```
 2. **Change to venv**
 
 If you use Linux run this command
@@ -64,7 +72,7 @@ source .venv/bin/activate
 For user use windowns:
 
 ```bash
-.venv-windows\Scripts\activate
+venv\Scripts\activate
 ```
 
 3. **Run local OpenAI server**

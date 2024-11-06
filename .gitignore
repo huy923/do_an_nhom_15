@@ -361,5 +361,6 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 
 /do_an_nhom_15/Models/Llama-3.2-1B-Instruct-Q6_K_L.gguf
+do_an_nhom_15/venvwin/
 do_an_nhom_15/venv/
 .vscode/
