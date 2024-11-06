@@ -4,7 +4,7 @@ This project i was install all model need to run
 
 ## Prerequisites
 
-Ensure you have the following:
+<!--Ensure you have the following:
 
 - A modern web browser (Chrome, Firefox, Safari, etc.)
 - A local web server (like Python's SimpleHTTPServer, Node's http-server, etc.). Or you can use Live Server feature from VSCode
@@ -15,7 +15,7 @@ Ensure you have the following:
 Follow the guide here to install llama_cpp Python <https://github.com/abetlen/llama-cpp-python>
 
 
-## Start the app using OpenAI API
+ ## Start the app using OpenAI API
 
 1. **Start the local server**
 
@@ -39,7 +39,7 @@ Open your web browser and navigate to localhost on the port your server is runni
 
 You should now see the chat interface in your browser. You can type messages into the input field and press "Send" to interact with the chatbot.
 
-Please note that this is a simple setup meant for local development and testing. It is not suitable for a production environment.
+Please note that this is a simple setup meant for local development and testing. It is not suitable for a production environment. -->
 
 ## Start the app using Local API
 
