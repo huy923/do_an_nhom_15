@@ -73,7 +73,7 @@ If you use Linux run this command
 source .venv/bin/activate
 ```
 
-For user use windowns:
+For user use windows:
 
 ```bash
 venv\Scripts\activate
