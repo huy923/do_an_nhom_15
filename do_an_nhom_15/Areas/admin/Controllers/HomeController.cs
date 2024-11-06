@@ -17,32 +17,5 @@ namespace do_an_nhom_15.Areas
         public IActionResult Element() { return View(); }
         public IActionResult Chart() { return View(); }
         public IActionResult Blank() { return View(); }
-        public IActionResult EmployeeManagement() {
-            ViewModel Employee = new()
-            {
-                EmployeeList = [.. _context.Employees],
-            };
-            return View(Employee);
-        }
-        [HttpPost]
-        public IActionResult Edit(Employee employee)
-        {
-            var existingEmployee = _context.Employees.FirstOrDefault(e => e.EmployeeId == employee.EmployeeId);
-
-            if (existingEmployee != null)
-            {
-                existingEmployee.FirstName = employee.FirstName;
-                existingEmployee.LastName = employee.LastName;
-                existingEmployee.Email = employee.Email;
-                existingEmployee.PhoneNumber = employee.PhoneNumber;
-                existingEmployee.Position = employee.Position;
-
-                _context.SaveChanges();
-
-                return RedirectToAction("EmployeeManagement", "Home");
-            }
-
-            return NotFound(); 
-        }
     }
 }

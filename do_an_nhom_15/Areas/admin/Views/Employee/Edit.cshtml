@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "Edit";
+}
+@model do_an_nhom_15.Models.Employee
+
+<div class="container mt-5">
+    <h2>Edit Employee</h2>
+    <form method="post" action="/Admin/Employee/EditEmployee">
+        <div class="mb-3">
+            <label for="FirstName" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="FirstName" name="FirstName" value="@Model.FirstName" required>
+        </div>
+        <div class="mb-3">
+            <label for="LastName" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="LastName" name="LastName" value="@Model.LastName" required>
+        </div>
+        <div class="mb-3">
+            <label for="Email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="Email" name="Email" value="@Model.Email" required>
+        </div>
+        <div class="mb-3">
+            <label for="PhoneNumber" class="form-label">Phone Number</label>
+            <input type="text" class="form-control" id="PhoneNumber" name="PhoneNumber" value="@Model.PhoneNumber" required>
+        </div>
+        <div class="mb-3">
+            <label for="Position" class="form-label">Position</label>
+            <input type="text" class="form-control" id="Position" name="Position" value="@Model.Position" required>
+        </div>
+        <div class="mb-3">
+            <label for="Salary" class="form-label">Salary</label>
+            <input type="number" class="form-control" id="Salary" name="Salary" value="@Model.Salary" step="0.01" required>
+        </div>
+          <div class="mb-3">
+              <label for="Status" class="form-label">Status</label>
+              <select class="form-select" id="Status" name="Status" required>
+                  <option value="" disabled>Select Status</option>
+                  <option value="active" >Active</option>
+                  <option value="inactive">Inactive</option>
+              </select>
+          </div>
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+    </form>
+</div>

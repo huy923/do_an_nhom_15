@@ -12,12 +12,12 @@ namespace do_an_nhom_15.Controllers
 
         public IActionResult Index()
         {
-            ViewModel product = new()
-            {
-                ProductList = [.. _context.Products]
-            };
-            return View(product);
-            // return View();
+            return View();
+            // ViewModel product = new()
+            // {
+            //     ProductList = [.. _context.Products]
+            // };
+            // return View(product);
         }
 
         public IActionResult Menu() { return View(); }
