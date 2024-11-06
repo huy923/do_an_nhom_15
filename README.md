@@ -51,13 +51,18 @@ Download `llama-3.2-1b-instruct-Q6_K_L.gguf` from here <https://huggingface.co/b
 
 Follow the guide here to install <https://www.python.org/downloads/> if your pc python is installed skipping this step 
 
-2. **Create file venv**
+
+3. **Create file venv**
 
 To create a new venv on python you need to run this first, but befo make sure that you 
 ```bash
+cd do_an_nhom_15
+```
+and then run this
+```bash
 python -m venv venv
 ```
-3. **
+3. **install model**
 ```
 python install -r model.txt
 ```
