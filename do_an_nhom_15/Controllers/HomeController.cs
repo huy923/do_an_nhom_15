@@ -20,7 +20,12 @@ namespace do_an_nhom_15.Controllers
             // return View(product);
         }
 
-        public IActionResult Menu() { return View(); }
+        public IActionResult Menu() {
+            ViewModel menu = new()
+            {
+                ProductList = [.. _context.Products]
+            };
+            return View(menu); }
         public IActionResult Product_single() { return View(); }
         public IActionResult Services() { return View(); }
         public IActionResult Blog() { return View(); }
