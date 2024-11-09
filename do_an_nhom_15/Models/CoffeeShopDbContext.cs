@@ -112,7 +112,6 @@ public partial class CoffeeShopDbContext : DbContext
                 .IsUnicode(false)
                 .HasColumnName("phone");
         });
-
         modelBuilder.Entity<Employee>(entity =>
         {
             entity.HasKey(e => e.EmployeeId).HasName("PK__employee__C52E0BA86F31F4A1");

@@ -5,39 +5,42 @@
 
 <div class="container mt-5">
     <h2>Edit Employee</h2>
-    <form method="post" action="/Admin/Employee/EditEmployee">
+    <form asp-action="Edit" >
+        <input type="hidden" asp-for="@Model.EmployeeId" />
         <div class="mb-3">
             <label for="FirstName" class="form-label">First Name</label>
-            <input type="text" class="form-control" id="FirstName" name="FirstName" value="@Model.FirstName" required>
+            <input type="text" class="form-control" asp-for="FirstName" value="@Model.FirstName" >
         </div>
         <div class="mb-3">
             <label for="LastName" class="form-label">Last Name</label>
-            <input type="text" class="form-control" id="LastName" name="LastName" value="@Model.LastName" required>
+            <input type="text" class="form-control" asp-for="LastName"  value="@Model.LastName" >
         </div>
         <div class="mb-3">
             <label for="Email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="Email" name="Email" value="@Model.Email" required>
+            <input type="email" class="form-control" asp-for="Email"  value="@Model.Email" >
         </div>
         <div class="mb-3">
             <label for="PhoneNumber" class="form-label">Phone Number</label>
-            <input type="text" class="form-control" id="PhoneNumber" name="PhoneNumber" value="@Model.PhoneNumber" required>
+            <input type="text" class="form-control"  asp-for="PhoneNumber"  value="@Model.PhoneNumber" >
         </div>
         <div class="mb-3">
             <label for="Position" class="form-label">Position</label>
-            <input type="text" class="form-control" id="Position" name="Position" value="@Model.Position" required>
+            <input type="text" class="form-control" asp-for="Position" value="@Model.Position" >
         </div>
         <div class="mb-3">
             <label for="Salary" class="form-label">Salary</label>
-            <input type="number" class="form-control" id="Salary" name="Salary" value="@Model.Salary" step="0.01" required>
+            <input type="number" class="form-control" asp-for="Salary"  value="@Model.Salary" step="0.01" >
         </div>
           <div class="mb-3">
               <label for="Status" class="form-label">Status</label>
-              <select class="form-select" id="Status" name="Status" required>
+            <select asp-for="Status" class="form-select" value="@Model.Status">
                   <option value="" disabled>Select Status</option>
                   <option value="active" >Active</option>
                   <option value="inactive">Inactive</option>
               </select>
           </div>
-        <button type="submit" class="btn btn-primary">Save Changes</button>
+        <button type="submit" class="btn btn-primary" asp-action="Edit">Save Changes</button>
+        <a class="btn btn-outline-primary w-48" asp-action="Employee">Cancel</a>
+
     </form>
 </div>

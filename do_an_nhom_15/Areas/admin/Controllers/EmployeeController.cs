@@ -1,5 +1,6 @@
 ﻿using do_an_nhom_15.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace do_an_nhom_15.Areas.Admin.Controllers
 {
@@ -26,26 +27,40 @@ namespace do_an_nhom_15.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Add(Employee employee)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid )
             {
                 employee.HireDate = DateTime.Now;
-                _context.Employees.Add(employee);
+                _context.Database.ExecuteSqlRaw(
+                "INSERT INTO employees (first_name, last_name, email, phone_number, position, salary, hire_date, status) " +
+                "VALUES ({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})",
+                employee.FirstName, employee.LastName, employee.Email, employee.PhoneNumber, employee.Position, employee.Salary, employee.HireDate, employee.Status);
                 _context.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(employee);
         }
-
         public IActionResult Edit(int id)
         {
-            var employee = _context.Employees.Find(id);
+            var employee = _context.Employees.AsNoTracking().FirstOrDefault(e => e.EmployeeId == id);
             if (employee == null)
             {
                 return NotFound();
             }
             return View(employee);
         }
+
+        //public IActionResult Edit(int id)
+        //{
+        //    var employee = _context.Employees.Find(id);
+        //    if (employee == null)
+        //    {
+        //       return NotFound();
+        //    }
+        //    return View(employee);
+        //}
+
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Edit(Employee employee)
         {
             if (ModelState.IsValid)
@@ -54,31 +69,23 @@ namespace do_an_nhom_15.Areas.Admin.Controllers
                 _context.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View("Edit");
+            return View(employee);
         }
-        public IActionResult Remove(int? id)
-        {
-            if (id == null || id == 0)
-            {
-                return NotFound();                
-            }
-            var mn = _context.Employees.Find(id);
-            if (mn == null)
-            {
-                return NotFound();
-            }
-            return View(mn);
-        }
+        [HttpGet]
+        public IActionResult Remove() { return View(); }
+        [HttpPost]
         public IActionResult Remove(int id)
         {
             var removeEmployee = _context.Employees.Find(id);
-            if(removeEmployee == null)
+            if (removeEmployee == null)
             {
                 return NotFound();
             }
+
             _context.Employees.Remove(removeEmployee);
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
+
     }
 }
