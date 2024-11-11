@@ -48,17 +48,6 @@ namespace do_an_nhom_15.Areas.Admin.Controllers
             }
             return View(employee);
         }
-
-        //public IActionResult Edit(int id)
-        //{
-        //    var employee = _context.Employees.Find(id);
-        //    if (employee == null)
-        //    {
-        //       return NotFound();
-        //    }
-        //    return View(employee);
-        //}
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Edit(Employee employee)
