@@ -8,13 +8,27 @@ namespace do_an_nhom_15.Areas.admin.Controllers
     {
         private readonly CoffeeShopDbContext _context = context;
 
-        public IActionResult Index()
+
+        public IActionResult Index(string? searchTerm)
         {
+            var products = _context.Products.AsQueryable();
+
+            if (!string.IsNullOrEmpty(searchTerm))
+            {
+                products = products.Where(p => p.Name.Contains(searchTerm));
+            }
+
             ViewModel model = new()
             {
-                ProductList = [.. _context.Products]
+                ProductList = [.. products]
             };
+
             return View(model);
+        }
+
+        public IActionResult Add()
+        {
+            return View();
         }
 
         public IActionResult Edit(int id)

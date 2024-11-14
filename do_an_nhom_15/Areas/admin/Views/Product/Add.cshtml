@@ -1,54 +1,41 @@
-@model do_an_nhom_15.Models.Employee
+@model do_an_nhom_15.Models.Product
 
 <div class="container mt-4 mb-2">
-    <h2 class="text-center mb-4">Add New Employee</h2>
+    <h2 class="text-center mb-4">Add New Product</h2>
     <form asp-action="Add">
         <div class="row">
             <div class="col-md-6 offset-md-3">
                 <div class="card shadow-sm bg-secondary text-white">
                     <div class="card-body">
                         <div class="mb-3">
-                            <label  class="form-label">First Name</label>
-                            <input type="text" asp-for="FirstName" class="form-control text-white" />
-                            <span asp-validation-for="FirstName" class="text-danger"></span>
+                            <label class="form-label">Product Name</label>
+                            <input type="text" asp-for="Name" class="form-control text-white" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
                         </div>
                         <div class="mb-3">
-                            <label  class="form-label">Last Name</label>
-                            <input type="text" asp-for="LastName" class="form-control text-white" />
-                            <span asp-validation-for="LastName" class="text-danger"></span>
+                            <label class="form-label">Description</label>
+                            <textarea type="text" asp-for="Description" class="form-control text-white" ></textarea>
+                            <span asp-validation-for="Description" class="text-danger"></span>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Email</label>
-                            <input type="email" asp-for="Email" class="form-control text-white" />
-                            <span asp-validation-for="Email" class="text-danger"></span>
+                            <label class="form-label">Price</label>
+                            <input type="email" asp-for="Price" class="form-control text-white" />
+                            <span asp-validation-for="Price" class="text-danger"></span>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Phone Number</label>
-                            <input type="text" asp-for="PhoneNumber" class="form-control text-white" />
-                            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                            <label class="form-label">Discount</label>
+                            <input type="number" asp-for="Discount" class="form-control text-white" />
+                            <span asp-validation-for="Discount" class="text-danger"></span>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Position</label>
-                            <input type="text" asp-for="Position" class="form-control text-white" />
-                            <span asp-validation-for="Position" class="text-danger"></span>
+                            <label class="form-label">Stock</label>
+                            <input type="text" asp-for="Stock" class="form-control text-white" />
+                            <span asp-validation-for="Stock" class="text-danger"></span>
                         </div>
-                        <div class="mb-3">
-                            <label class="form-label">Salary</label>
-                            <input  asp-for="Salary" class="form-control text-white" type="number" step="0.01" />
-                            <span asp-validation-for="Salary" class="text-danger"></span>
-                        </div>
-                        <div class="mb-3">
-                            <label  class="form-label ">Status</label>
-                            <select asp-for="Status" class="form-select text-white">
-                                <option value="">Select Status</option>
-                                <option value="active">Active</option>
-                                <option value="inactive">Inactive</option>
-                            </select>
-                            <span asp-validation-for="Status" class="text-danger"></span>
-                        </div>
+                        
                         <div class="d-flex justify-content-between">
                             <button type="submit" class="btn btn-primary" asp-action="Add">Add Employee</button>
-                            <a class="btn btn-outline-primary w-48" asp-action="Employee">Cancel</a>
+                            <a class="btn btn-outline-primary w-48" asp-action="Index">Cancel</a>
                         </div>
                     </div>
                 </div>

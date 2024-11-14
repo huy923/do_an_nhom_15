@@ -9,13 +9,21 @@ namespace do_an_nhom_15.Areas.Admin.Controllers
     {
         private readonly CoffeeShopDbContext _context = context;
 
-        public IActionResult Index()
+        public IActionResult Index(string? searchTerm)
         {
-            ViewModel Employee = new()
+            var employee = _context.Employees.AsQueryable();
+
+            if (!string.IsNullOrEmpty(searchTerm))
             {
-                EmployeeList = [.. _context.Employees],
+                employee = employee.Where(p => p.FirstName.Contains(searchTerm) ||  p.LastName.Contains(searchTerm));
+            }
+
+            ViewModel model = new()
+            {
+                EmployeeList = [.. employee]
             };
-            return View(Employee);
+
+            return View(model);
         }
 
         public IActionResult Add()
