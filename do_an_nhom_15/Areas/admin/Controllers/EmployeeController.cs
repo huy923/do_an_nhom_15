@@ -83,6 +83,5 @@ namespace do_an_nhom_15.Areas.Admin.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
-
     }
 }

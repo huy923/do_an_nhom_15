@@ -40,7 +40,9 @@ Open your web browser and navigate to localhost on the port your server is runni
 You should now see the chat interface in your browser. You can type messages into the input field and press "Send" to interact with the chatbot.
 
 Please note that this is a simple setup meant for local development and testing. It is not suitable for a production environment. -->
-
+cmake
+https://developer.nvidia.com/cuda-downloads
+python -m pip install llama-cpp-python --prefer-binary --no-cache-dir --extra-index-url=https://jllllll.github.io/llama-cpp-python-cuBLAS-wheels/AVX2/cu118
 ## Start the app using Local API
 
 1. **Download model**
@@ -80,9 +82,20 @@ venv\Scripts\activate
 ```
 
 4. **install model**
+If you use windows run this command
 
 ```bash
-pip install llama-cpp-python uvicorn git-filter-repo pydantic_settings starlette_context fastapi sse_starlette
+python -m pip install llama-cpp-python --prefer-binary --no-cache-dir --extra-index-url=https://jllllll.github.io/llama-cpp-python-cuBLAS-wheels/AVX2/cu118
+```
+
+And make sure you have cuda installed if ypu runing this command
+```bash
+nvidia-smi
+```
+and not show anything you need to 
+
+```bash
+pip install uvicorn git-filter-repo pydantic_settings starlette_context fastapi sse_starlette
 
 ```
 
@@ -97,5 +110,5 @@ Run the following script to run an OpenAI API server locally. The server should 
 or:
 
 ```bash
-python -m llama_cpp.server --model "./models/mistral-7b-openorca.Q4_0.gguf" --chat_format chatml --n_gpu_layers 1
+    python -m llama_cpp.server --model "./models/mistral-7b-openorca.Q4_0.gguf" --chat_format chatml --n_gpu_layers 1
 ```

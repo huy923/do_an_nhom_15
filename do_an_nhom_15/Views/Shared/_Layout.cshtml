@@ -22,9 +22,9 @@
     <link href="~/datahome/css/flaticon.css" rel="stylesheet" />
     <link href="~/datahome/css/icomoon.css" rel="stylesheet" />
 
-  @* <script src="~/files/tailwind.js"></script> *@
+    @* <script src="~/files/tailwind.js"></script> *@
     <script src="~/files/vue.global.js"></script>
-    <script src="~/files/axios.min.js"></script> 
+    <script src="~/files/axios.min.js"></script>
 </head>
 
 <body>
@@ -43,8 +43,8 @@
                     <li class="nav-item"><a href="/home/blog" class="nav-link">Blog</a></li>
                     <li class="nav-item"><a href="/home/about" class="nav-link">About</a></li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="room" id="dropdown04" data-toggle="dropdown" aria-haspopup="true"
-                           aria-expanded="false">Shop</a>
+                        <a class="nav-link dropdown-toggle" href="room" id="dropdown04" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">Shop</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown04">
                             <a class="dropdown-item" href="/home/shop">Shop</a>
                             <a class="dropdown-item" href="/home/product_single">Single Product</a>
@@ -56,7 +56,7 @@
                     <li class="nav-item cart">
                         <a href="/home/cart" class="nav-link">
                             <span class="icon icon-shopping_cart"></span>
-                            <span class="bag d-flex justify-content-center align-items-center"><small>1</small></span>
+                            <span class="bag d-flex justify-content-center align-items-center"><small>2</small></span>
                         </a>
                     </li>
                 </ul>
@@ -72,7 +72,8 @@
                     <div class="ftco-footer-widget mb-4">
                         <h2 class="ftco-heading-2">About Us</h2>
                         <p>
-                            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the
+                            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
+                            there live the
                             blind texts.
                         </p>
                         <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
@@ -88,7 +89,9 @@
                         <div class="block-21 mb-4 d-flex">
                             <a class="blog-img mr-4" style="background-image: url(~/datahome/images/image_1.jpg);"></a>
                             <div class="text">
-                                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
+                                <h3 class="heading">
+                                    <a href="#">Even the all-powerful Pointing has no control about</a>
+                                </h3>
                                 <div class="meta">
                                     <div><a href="#"><span class="icon-calendar"></span> Sept 15, 2018</a></div>
                                     <div><a href="#"><span class="icon-person"></span> Admin</a></div>
@@ -99,7 +102,9 @@
                         <div class="block-21 mb-4 d-flex">
                             <a class="blog-img mr-4" style="background-image: url(~/datahome/images/image_2.jpg);"></a>
                             <div class="text">
-                                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
+                                <h3 class="heading">
+                                    <a href="#">Even the all-powerful Pointing has no control about</a>
+                                </h3>
                                 <div class="meta">
                                     <div><a href="#"><span class="icon-calendar"></span> Sept 15, 2018</a></div>
                                     <div><a href="#"><span class="icon-person"></span> Admin</a></div>
@@ -131,7 +136,14 @@
                                         Francisco, California, USA
                                     </span>
                                 </li>
-                                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
+                                <li>
+                                    <a href="#">
+                                        <span class="icon icon-phone"></span><span class="text">
+                                            +2 392 3929
+                                            210
+                                        </span>
+                                    </a>
+                                </li>
                                 <li>
                                     <a href="#">
                                         <span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span>
@@ -146,44 +158,53 @@
                 <div class="col-md-12 text-center">
                     <p>
                         Copyright &copy;
-                        <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with
-                        <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                        <script>document.write(new Date().getFullYear());</script> All rights reserved | This template
+                        is made with
+                        <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com"
+                                                                            target="_blank">Colorlib</a>
                     </p>
                 </div>
             </div>
         </div>
     </footer>
     @* chatbox *@
-    <button id="iconButton" class="position-fixed btn btn-primary p-3 pr-4" style="right: 40px; bottom:45px;width:50px; border-radius: 50%;" onclick="toggleIcon()">
+    <button id="iconButton" class="position-fixed btn btn-primary p-3 pr-4"
+            style="right: 40px; bottom:45px;width:50px; border-radius: 50%;" onclick="toggleIcon()">
         <i class="icon-chat_bubble text-white" style="font-size: 1.3rem;"></i>
     </button>
-    <div id="showChatbot" class="d-none">
-        <main id="app" class="position-fixed "
-              style="bottom: 130px; right: 60px; width: 420px; border-radius: 20px; background-color:black">
-            <div class="bg-black" style="border-radius: 20px;">
-                <header class="bg-primary text-center text-white py-3 " style="border-top-left-radius: 20px; border-top-right-radius: 20px;">
+    <div id="showChatbot">
+        <main id="app" class="position-fixed bg-dark border-0"
+              style="bottom: 130px; right: 40px; width: 420px; border-radius: 15px;">
+            <div class="shadow rounded-mt ">
+                <header class="bg-primary text-center text-white pt-2 rounded-top-3" style="border-top-right-radius: 15px;border-top-left-radius:15px;">
                     <h2>Chatbox</h2>
                 </header>
-                <ul class="list-unstyled overflow-auto" style="height: 510px; padding: 15px 20px 70px;">
-                    <li v-for="message in messages" :key="message.id" class="d-flex mb-3" :class="{ 'justify-content-end': message.role === 'user', 'justify-content-start': message.role === 'assistant' }">
-                        <div v-if="message.role === 'assistant'" class="flex-shrink-0 me-3">
+                <ul class="list-unstyled overflow-auto"
+                    style="height: 510px; padding: 15px 20px 70px;">
+                    <li v-for="message in messages" :key="message.id"
+                        class="d-flex mb-3"
+                        :class="{ 'justify-content-end': message.role === 'user', 'justify-content-start': message.role === 'assistant' }">
+                        <div v-if="message.role === 'assistant'"
+                             class="flex-shrink-0 me-3">
                             <img class="rounded-circle"
                                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTagONv1r-0HPnlnWClF12amS_KdrPX83zlhcXHyek&s"
                                  width="32" height="32" alt="ChatGPT Icon">
                         </div>
                         <div class="flex-grow-1">
-                            <p class="m-0 px-3 py-2 rounded bg-primary text-white">
-                                @* :class="message.role === 'assistant' ? 'bg-light text-dark' : 'bg-primary text-white'"> *@
+                            <p class="m-0 px-3 py-2 rounded"
+                               :class="message.role === 'assistant' ? 'bg-primary text-dark' : 'bg-primary text-white'">
                                 {{ message.content }}
                             </p>
                         </div>
                     </li>
                 </ul>
-                <form v-on:submit.prevent="sendMessage" class="text-black">
-                    <div class="input-group border-top">
-                        <input type="text" v-model="userInput" placeholder="Type your message here..." class="form-control ml-3">
-                        <button type="submit" class=" btn btn-primary text-black border-top p-3" style=" border-bottom-right-radius: 20px;">
-                            <i class="icon-send" style="font-size: large;"></i>
+                <form v-on:submit.prevent="sendMessage" class="border-top">
+                    <div class="input-group ">
+                        <input type="text" v-model="userInput"
+                               placeholder="Type your message here..."
+                               class="form-control ml-4">
+                        <button type="submit"class="btn btn-primary text-black " style=" border-bottom-right-radius:30%;">
+                            <i class="icon icon-send" style="font-size:large;"></i>
                         </button>
                     </div>
                 </form>
@@ -208,7 +229,8 @@
                     {
                         role: "system",
                         content:
-                            "You're a helpful chat bot. Answer short and concise in 150 tokens only.",
+                           // "You're a helpful chat bot. Answer short and concise in 150 tokens only.",
+                           "Hi there ",
                     },
                 ]);
                 const isLoading = ref(false);
@@ -220,8 +242,6 @@
 
                 async function sendMessage() {
                     if (!userInput.value.trim()) return;
-
-                    // Append user message
                     messages.value.push({
                         role: "user",
                         content: userInput.value,
@@ -235,17 +255,17 @@
                         const response = await axios.post(
                             `${OPEN_AI_ENDPOINT}/chat/completions`,
                             {
-                                model: 'gpt-3.5-turbo',
-                                // model: "gpt-4-1106-preview",
+                                // model: 'gpt-3.5-turbo',
+                                model: "gpt-4-1106-preview",
                                 messages: messages.value,
                                 temperature: 0.9,
                                 max_tokens: 150,
-                            }
+                            },
                         );
                         // Append ChatGPT response
                         messages.value.push({
                             role: "assistant",
-                            content: response.data.choices[1].message.content,
+                            content: response.data.choices[0].message.content,
                         });
                     } catch (error) {
                         console.error(
@@ -266,8 +286,7 @@
             },
         }).mount("#app");
     </script>
-
-     <script src="~/datahome/js/jquery.min.js"></script>
+    <script src="~/datahome/js/jquery.min.js"></script>
     <script src="~/datahome/js/jquery-migrate-3.0.1.min.js"></script>
     <script src="~/datahome/js/popper.min.js"></script>
     <script src="~/datahome/js/bootstrap.min.js"></script>
