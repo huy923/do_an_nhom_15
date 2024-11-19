@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 namespace do_an_nhom_15.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class EmployeeController(CoffeeShopDbContext context) : Controller
+    public class EmployeeController(CoffeeShopDbContext context) : AdminBaseController
     {
         private readonly CoffeeShopDbContext _context = context;
 
@@ -40,7 +40,7 @@ namespace do_an_nhom_15.Areas.Admin.Controllers
         {
             if (ModelState.IsValid )
             {
-                employee.HireDate = DateTime.Now;
+                employee.HireDate = DateOnly.FromDateTime(DateTime.Now);
                 _context.Database.ExecuteSqlRaw(
                 "INSERT INTO employees (first_name, last_name, email, phone_number, position, salary, hire_date, status) " +
                 "VALUES ({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})",

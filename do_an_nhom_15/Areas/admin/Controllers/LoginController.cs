@@ -1,12 +1,42 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using do_an_nhom_15.Models;
+using Microsoft.AspNetCore.Mvc;
 
-namespace do_an_nhom_15.Areas.admin.Controllers
+namespace do_an_nhom_15.Areas.Admin.Controllers
 {
-    public class LoginController : Controller
+    [Area("Admin")]
+    public class LoginController(CoffeeShopDbContext context) : Controller
     {
+        private readonly CoffeeShopDbContext _context = context;
+
         public IActionResult Index()
         {
-            return View(model: null);
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Authenticate(string username, string password)
+        {
+            var checkUser = _context.AdminUsers.Where(u => (u.Username == username) && (u.Password == password)).FirstOrDefault();
+            if (checkUser != null)
+            {
+                // Lưu trạng thái đăng nhập vào Cookie
+                var cookieOptions = new CookieOptions
+                {
+                    Expires = DateTime.UtcNow.AddYears(1) // Cookie tồn tại trong 1 năm
+                };
+                Response.Cookies.Append("AdminLoggedIn", "true", cookieOptions);
+
+                return RedirectToAction("Index", "Home", new { area = "Admin" });
+            }
+
+            ViewBag.ErrorMessage = "Tên đăng nhập hoặc mật khẩu không đúng!";
+            return View("Index");
+        }
+
+        public IActionResult Logout()
+        {
+            Response.Cookies.Delete("AdminLoggedIn");
+            return RedirectToAction("Index", "Login", new { area = "Admin" });
         }
     }
 }
