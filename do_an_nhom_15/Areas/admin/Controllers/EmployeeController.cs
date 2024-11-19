@@ -15,7 +15,10 @@ namespace do_an_nhom_15.Areas.Admin.Controllers
 
             if (!string.IsNullOrEmpty(searchTerm))
             {
-                employee = employee.Where(p => p.FirstName.Contains(searchTerm) ||  p.LastName.Contains(searchTerm));
+                if (!string.IsNullOrEmpty(searchTerm))
+                {
+                    employee = employee.Where(p => p.FirstName != null && p.FirstName.Contains(searchTerm) || p.LastName != null && p.LastName.Contains(searchTerm));
+                }
             }
 
             ViewModel model = new()

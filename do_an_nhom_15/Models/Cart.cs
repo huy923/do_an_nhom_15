@@ -6,9 +6,6 @@ namespace do_an_nhom_15.Models;
 public partial class Cart
 {
     public int CartId { get; set; }
-
-    public string SessionId { get; set; } = null!;
-
     public int ProductId { get; set; }
 
     public int Quantity { get; set; }

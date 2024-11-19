@@ -78,10 +78,7 @@ public partial class CoffeeShopDbContext : DbContext
             entity.Property(e => e.Quantity)
                 .HasDefaultValue(1)
                 .HasColumnName("quantity");
-            entity.Property(e => e.SessionId)
-                .HasMaxLength(100)
-                .IsUnicode(false)
-                .HasColumnName("session_id");
+
 
             entity.HasOne(d => d.Product).WithMany(p => p.Carts)
                 .HasForeignKey(d => d.ProductId)
