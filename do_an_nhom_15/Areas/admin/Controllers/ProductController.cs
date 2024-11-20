@@ -1,4 +1,5 @@
-﻿using do_an_nhom_15.Models;
+﻿using do_an_nhom_15.Areas.Admin.Controllers;
+using do_an_nhom_15.Models;
 using elFinder.NetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -8,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 namespace do_an_nhom_15.Areas.admin.Controllers
 {
     [Area("Admin")]
-    public class ProductController(CoffeeShopDbContext context) : Controller
+    public class ProductController(CoffeeShopDbContext context) : AdminBaseController
     {
         private readonly CoffeeShopDbContext _context = context;
 

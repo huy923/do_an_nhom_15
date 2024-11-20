@@ -168,25 +168,27 @@
         </div>
     </footer>
     @* chatbox *@
-    <button id="iconButton" class="position-fixed btn btn-primary p-3 pr-4"
-            style="right: 40px; bottom:45px;width:50px; border-radius: 50%;" onclick="toggleIcon()">
+    <button id="iconButton" class="position-fixed btn btn-primary d-flex align-items-center justify-content-center"
+            style="right: 40px; bottom: 45px; width: 50px; height: 50px; border-radius: 50%;"
+            onclick="toggleIcon()">
         <i class="icon-chat_bubble text-white" style="font-size: 1.3rem;"></i>
     </button>
-    <div id="showChatbot">
+
+    <div id="showChatbot" class="d-none">
         <main id="app" class="position-fixed bg-dark border-0"
               style="bottom: 130px; right: 40px; width: 420px; border-radius: 15px;">
             <div class="shadow rounded-mt ">
                 <header class="bg-primary text-center text-white pt-2 rounded-top-3" style="border-top-right-radius: 15px;border-top-left-radius:15px;">
                     <h2>Chatbox</h2>
                 </header>
-                <ul class="list-unstyled overflow-auto"
-                    style="height: 510px; padding: 15px 20px 70px;">
+                <ul class="list-unstyled overflow-hidden"
+                    style="height: 510px; padding: 15px 20px 70px; overflow-y: auto;">
                     <li v-for="message in messages" :key="message.id"
                         class="d-flex mb-3"
                         :class="{ 'justify-content-end': message.role === 'user', 'justify-content-start': message.role === 'assistant' }">
                         <div v-if="message.role === 'assistant'"
                              class="flex-shrink-0 me-3">
-                            <img class="rounded-circle"
+                            <img class="rounded-circle icon icon-chat"
                                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTagONv1r-0HPnlnWClF12amS_KdrPX83zlhcXHyek&s"
                                  width="32" height="32" alt="ChatGPT Icon">
                         </div>

@@ -13,3 +13,17 @@ function toggleIcon() {
         showChatbot.classList.add("d-none");
     }
 }
+function syncQuantity() {
+    const quantityValue = document.getElementById('quantity').value;
+    document.getElementById('hiddenQuantity').value = quantityValue;
+}
+function moreQuantity() {
+    const quantityInput = document.getElementById('quantity').value;
+    quantityInput.value += 1;
+    syncQuantity();
+}
+function lessQuantity() {
+    const quantityInput = document.getElementById('quantity').value;
+    quantityInput.value -= 1;
+    syncQuantity();
+}

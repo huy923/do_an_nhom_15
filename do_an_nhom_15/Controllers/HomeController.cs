@@ -13,7 +13,11 @@ namespace do_an_nhom_15.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            ViewModel view = new()
+            {
+                ProductList = [.. _context.Products]
+            };
+            return View(view);
         }
 
         public IActionResult Menu()
@@ -23,17 +27,6 @@ namespace do_an_nhom_15.Controllers
                 ProductList = [.. _context.Products]
             };
             return View(menu);
-        }
-        [HttpGet]
-        public IActionResult Product_single(int id)
-        {
-            var product = _context.Products.AsNoTracking().FirstOrDefault(e => e.ProductId == id);
-            ViewModel view = new()
-            {
-                ProductList = [.. _context.Products],
-                SelectedProduct = product
-            };
-            return View(view);
         }
         public IActionResult Services() { return View(); }
         public IActionResult Blog() { return View(); }
@@ -58,6 +51,16 @@ namespace do_an_nhom_15.Controllers
             _context.Carts.Remove(remove);
             _context.SaveChanges();
             return RedirectToAction("Cart");
+        }
+        [HttpPost]
+        public IActionResult AddToCart(Cart cart)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Carts.Add(cart);
+                _context.SaveChanges();
+            }
+            return View(cart);
         }
         public IActionResult Checkout() { return View(); }
         public IActionResult Contact() { return View(); }
