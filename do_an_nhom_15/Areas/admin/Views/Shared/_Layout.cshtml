@@ -62,14 +62,16 @@
                     <a href="/admin/home/" class="nav-item nav-link @(currentUrl == "/admin/home/" ? "active" : "")">
                         <i class="fa fa-tachometer-alt me-2"></i>Dashboard
                     </a>
-                    <div class="nav-item dropdown @(currentUrl.ToString().Contains("/admin/home/Element") ? "active" : "")">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Elements</a>
-                        <div class="dropdown-menu bg-transparent border-0">
-                            <a href="/admin/home/Button" class="dropdown-item">Buttons</a>
-                            <a href="/admin/home/Typography" class="dropdown-item">Typography</a>
-                            <a href="/admin/home/Element" class="dropdown-item">Other Elements</a>
-                        </div>
-                    </div>
+                   
+                    <a href="/admin/home/Button" class="nav-item nav-link  @(currentUrl == "/admin/home/Button" ? "active" : "")">
+                        <i class="fa fa-coffee me-2"></i>Products
+                    </a>
+                    <a href="/admin/home/Typography" class="nav-item nav-link  @(currentUrl == "/admin/home/Typography" ? "active" : "")">
+                        <i class="fa fa-coffee me-2"></i>Products
+                    </a>
+                    <a href="/admin/home/Element" class="nav-item nav-link  @(currentUrl == "/admin/home/Element" ? "active" : "")">
+                        <i class="fa fa-coffee me-2"></i>Products
+                    </a>
                     <a href="/admin/Product/" class="nav-item nav-link  @(currentUrl == "/admin/Product/" ? "active" : "")">
                         <i class="fa fa-coffee me-2"></i>Products
                     </a>
@@ -91,8 +93,7 @@
                     <div class="nav-item dropdown @(currentUrl.ToString().Contains("/admin/home/") && (currentUrl == "/admin/home/Signin" || currentUrl == "/admin/home/Signup" || currentUrl == "/admin/home/Blank") ? "active" : "")">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Pages</a>
                         <div class="dropdown-menu bg-transparent border-0">
-                            <a href="/admin/home/Signin" class="dropdown-item">Sign In</a>
-                            <a href="/admin/home/Signup" class="dropdown-item">Sign Up</a>
+                            <a href="/admin/login/Signin" class="dropdown-item">Sign In</a>
                             <a href="/admin/home/Blank" class="dropdown-item">Blank Page</a>
                         </div>
                     </div>

@@ -19,10 +19,9 @@ namespace do_an_nhom_15.Areas.Admin.Controllers
             var checkUser = _context.AdminUsers.Where(u => (u.Username == username) && (u.Password == password)).FirstOrDefault();
             if (checkUser != null)
             {
-                // Lưu trạng thái đăng nhập vào Cookie
                 var cookieOptions = new CookieOptions
                 {
-                    Expires = DateTime.UtcNow.AddYears(1) // Cookie tồn tại trong 1 năm
+                    Expires = DateTime.UtcNow.AddYears(1) 
                 };
                 Response.Cookies.Append("AdminLoggedIn", "true", cookieOptions);
 

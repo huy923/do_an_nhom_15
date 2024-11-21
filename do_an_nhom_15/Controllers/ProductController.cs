@@ -33,7 +33,6 @@ namespace do_an_nhom_15.Controllers
             };
             return View(view);
         }
-        [HttpPost]
         public IActionResult AddToCart(Cart cart)
         {
             if (ModelState.IsValid)
