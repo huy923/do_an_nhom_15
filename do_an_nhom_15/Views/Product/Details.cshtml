@@ -1,12 +1,10 @@
 @model do_an_nhom_15.Models.ViewModel
 <section class="home-slider owl-carousel">
-
     <div class="slider-item" style="background-image: url(/datahome/images/bg_3.jpg);"
          data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
         <div class="container">
             <div class="row slider-text justify-content-center align-items-center">
-
                 <div class="col-md-7 col-sm-12 text-center ftco-animate">
                     <h1 class="mb-3 mt-5 bread">Product Detail</h1>
                     <p class="breadcrumbs">
@@ -23,11 +21,11 @@
 </section>
 
 
-<section class="ftco-section">
-    <div class="container">
-        <div class="row">
-            @if (Model.SelectedProduct != null)
-            {
+@if (Model.SelectedProduct != null)
+{
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row">
                 <div class="col-lg-6 mb-5 ftco-animate">
                     <a href="@Model.SelectedProduct.ImageUrl" class="image-popup ">
                         <img src="@Model.SelectedProduct.ImageUrl" style="width:500px;height:500px;" class=" border-3"
@@ -83,33 +81,30 @@
                         </div>
                     </div>
                     <p>
-                        <form asp-action="AddToCart">
-                            <input type="hidden" asp-for="AddCart.CartId" />
+                        <form asp-controller="Cart" asp-action="Add" method="post">
                             <input type="hidden" asp-for="AddCart.ProductId" name="ProductId" value="@Model?.AddCart?.ProductId" />
                             <input type="hidden" asp-for="AddCart.Quantity" name="Quantity" id="hiddenQuantity" value="1" />
                             <button type="submit" class="btn btn-primary py-3 px-5 text-white"><p class="text-white">Add to Cart</p></button>
                         </form>
                     </p>
                 </div>
-            }
-        </div>
-    </div>
-</section>
-
-<section class="ftco-section">
-    <div class="container">
-        <div class="row justify-content-center mb-5 pb-3">
-            <div class="col-md-7 heading-section ftco-animate text-center">
-                <span class="subheading">Discover</span>
-                <h2 class="mb-4">Related products</h2>
-                <p>
-                    Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live
-                    the blind texts.
-                </p>
             </div>
         </div>
-        @if (Model.ProductList != null)
-        {
+    </section>
+
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row justify-content-center mb-5 pb-3">
+                <div class="col-md-7 heading-section ftco-animate text-center">
+                    <span class="subheading">Discover</span>
+                    <h2 class="mb-4">Related products</h2>
+                    <p>
+                        Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live
+                        the blind texts.
+                    </p>
+                </div>
+            </div>
+
             <div class="row justify-content-center">
                 @foreach (var item in Model.ProductList.Take(4))
                 {
@@ -127,11 +122,16 @@
                             </div>
                         </a>
                         <div class="d-flex justify-content-center mt-2">
-                            <a href="#" class="btn btn-sm btn-primary">Add to Cart</a>
+                            <form asp-controller="Cart" asp-action="ProductAdd" method="post">
+                                <input type="hidden" name="id" value="@item.ProductId" />
+                                <button type="submit" class="btn btn-sm btn-primary">Add to Cart</button>
+                            </form>
+
                         </div>
                     </div>
                 }
             </div>
-        }
-    </div>
-</section>
+
+        </div>
+    </section>
+}

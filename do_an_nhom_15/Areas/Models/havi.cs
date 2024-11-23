@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace do_an_nhom_15.Areas.admin.Models
 {
     [Table("AdminUsers")]
-    public class havi
+    public class Havi
     {
         [Key]
         public int AdminId { get; set; }
