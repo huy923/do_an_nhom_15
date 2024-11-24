@@ -20,7 +20,6 @@
     </div>
 </section>
 
-
 @if (Model.SelectedProduct != null)
 {
     <section class="ftco-section">
@@ -35,18 +34,10 @@
                 <div class="col-lg-6 product-details pl-md-5 ftco-animate">
                     <h3>@Model.SelectedProduct.Name</h3>
                     <p class="price"><span>$@Model.SelectedProduct.Price</span></p>
-                    <p>
-                        A small river named Duden flows by their place and supplies it with the necessary regelialia. It
-                        is a paradisematic country, in which roasted parts of sentences fly into your mouth.
-                    </p>
-                    <p>
-                        On her way she met a copy. The copy warned the Little Blind Text, that where it came from it
-                        would have been rewritten a thousand times and everything that was left from its origin would be
-                        the word "and" and the Little Blind Text should turn around and return to its own, safe country.
-                        But nothing the copy said could convince her and so it didn’t take long until a few insidious
-                        Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their
-                        agency, where they abused her for their.
-                    </p>
+                    @if (!string.IsNullOrEmpty(Model.SelectedProduct.Description))
+                    {
+                        @Html.Raw(Model.SelectedProduct.Description)
+                    }
                     <div class="row mt-4">
                         <div class="col-md-6">
                             <div class="form-group d-flex">
@@ -116,7 +107,6 @@
                                      style="height: 200px; width: 100%; border-radius: 8px;" />
                                 <div class="card-body text-center">
                                     <h5 class="card-title text-white">@item.Name</h5>
-                                    <p class="card-text text-white small">@item.Description</p>
                                     <p class="price text-white font-weight-bold"><span>$@item.Price</span></p>
                                 </div>
                             </div>
@@ -126,7 +116,6 @@
                                 <input type="hidden" name="id" value="@item.ProductId" />
                                 <button type="submit" class="btn btn-sm btn-primary">Add to Cart</button>
                             </form>
-
                         </div>
                     </div>
                 }

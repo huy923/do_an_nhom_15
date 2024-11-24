@@ -59,59 +59,21 @@
                             <p>A small river named Duden flows by their place and supplies.</p>
                         </div>
                     </div>
-                    <div class="col-md-4 d-flex ftco-animate">
-                        <div class="icon"><span class="icon-my_location"></span></div>
-                        <div class="text">
-                            <h3>198 West 21th Street</h3>
-                            <p>	203 Fake St. Mountain View, San Francisco, California, USA</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 d-flex ftco-animate">
-                        <div class="icon"><span class="icon-clock-o"></span></div>
-                        <div class="text">
-                            <h3>Open Monday-Friday</h3>
-                            <p>8:00am - 9:00pm</p>
-                        </div>
+                </div>
+                <div class="col-md-4 d-flex ftco-animate">
+                    <div class="icon"><span class="icon-my_location"></span></div>
+                    <div class="text">
+                        <h3>198 West 21th Street</h3>
+                        <p>	203 Fake St. Mountain View, San Francisco, California, USA</p>
                     </div>
                 </div>
-            </div>
-            <div class="book p-4">
-                <h3>Book a Table</h3>
-                <form action="#" class="appointment-form">
-                    <div class="d-md-flex">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="First Name">
-                        </div>
-                        <div class="form-group ml-md-4">
-                            <input type="text" class="form-control" placeholder="Last Name">
-                        </div>
+                <div class="col-md-4 d-flex ftco-animate">
+                    <div class="icon"><span class="icon-clock-o"></span></div>
+                    <div class="text">
+                        <h3>Open Monday-Friday</h3>
+                        <p>8:00am - 9:00pm</p>
                     </div>
-                    <div class="d-md-flex">
-                        <div class="form-group">
-                            <div class="input-wrap">
-                                <div class="icon"><span class="ion-md-calendar"></span></div>
-                                <input type="text" class="form-control appointment_date" placeholder="Date">
-                            </div>
-                        </div>
-                        <div class="form-group ml-md-4">
-                            <div class="input-wrap">
-                                <div class="icon"><span class="ion-ios-clock"></span></div>
-                                <input type="text" class="form-control appointment_time" placeholder="Time">
-                            </div>
-                        </div>
-                        <div class="form-group ml-md-4">
-                            <input type="text" class="form-control" placeholder="Phone">
-                        </div>
-                    </div>
-                    <div class="d-md-flex">
-                        <div class="form-group">
-                            <textarea name="" id="" cols="30" rows="2" class="form-control" placeholder="Message"></textarea>
-                        </div>
-                        <div class="form-group ml-md-4">
-                            <input type="submit" value="Appointment" class="btn btn-white py-3 px-4">
-                        </div>
-                    </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>
@@ -274,14 +236,12 @@
                 @foreach (var item in Model.ProductList.Take(4))
                 {
                     string sUrl = $"/product/{item.Name}-{item.ProductId}.html";
-
                     <div class="col-md-3 col-sm-6 mb-4 ftco-animate fadeInUp ftco-animated">
                         <a href="@sUrl" class=" shadow-sm text-decoration-none">
                             <div class="menu-entry">
                                 <img src="@item.ImageUrl" class="card-img-top" style="height: 200px; width: 100%; border-radius: 8px;" />
                                 <div class="card-body text-center">
                                     <h5 class="card-title text-white">@item.Name</h5>
-                                    <p class="card-text text-white small">@item.Description</p>
                                     <p class="price text-white font-weight-bold"><span>$@item.Price</span></p>
                                 </div>
                             </div>
@@ -611,54 +571,6 @@
                         <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</section>
-<section class="ftco-appointment">
-    <div class="overlay"></div>
-    <div class="container-wrap">
-        <div class="row no-gutters d-md-flex align-items-center">
-            <div class="col-md-6 d-flex align-self-stretch">
-                <div id="map"></div>
-            </div>
-            <div class="col-md-6 appointment ftco-animate">
-                <h3 class="mb-3">Book a Table</h3>
-                <form action="#" class="appointment-form">
-                    <div class="d-md-flex">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="First Name">
-                        </div>
-                        <div class="form-group ml-md-4">
-                            <input type="text" class="form-control" placeholder="Last Name">
-                        </div>
-                    </div>
-                    <div class="d-md-flex">
-                        <div class="form-group">
-                            <div class="input-wrap">
-                                <div class="icon"><span class="ion-md-calendar"></span></div>
-                                <input type="text" class="form-control appointment_date" placeholder="Date">
-                            </div>
-                        </div>
-                        <div class="form-group ml-md-4">
-                            <div class="input-wrap">
-                                <div class="icon"><span class="ion-ios-clock"></span></div>
-                                <input type="text" class="form-control appointment_time" placeholder="Time">
-                            </div>
-                        </div>
-                        <div class="form-group ml-md-4">
-                            <input type="text" class="form-control" placeholder="Phone">
-                        </div>
-                    </div>
-                    <div class="d-md-flex">
-                        <div class="form-group">
-                            <textarea name="" id="" cols="30" rows="2" class="form-control" placeholder="Message"></textarea>
-                        </div>
-                        <div class="form-group ml-md-4">
-                            <input type="submit" value="Appointment" class="btn btn-primary py-3 px-4">
-                        </div>
-                    </div>
-                </form>
             </div>
         </div>
     </div>

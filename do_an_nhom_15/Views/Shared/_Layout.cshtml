@@ -23,8 +23,8 @@
     <link href="~/datahome/css/icomoon.css" rel="stylesheet" />
 
     @* <script src="~/files/tailwind.js"></script> *@
-    <script src="~/files/vue.global.js"></script>
-    <script src="~/files/axios.min.js"></script>
+    <script src="~/datahome/js/vue.global.js"></script>
+    <script src="~/datahome/js/axios.min.js"></script>
 </head>
 
 <body>
@@ -32,7 +32,7 @@
         <div class="container">
             <a class="navbar-brand" href="index">Coffee<small>Blend</small></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
-                    aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+            aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="oi oi-menu"></span> Menu
             </button>
             <div class="collapse navbar-collapse" id="ftco-nav">
@@ -44,7 +44,7 @@
                     <li class="nav-item"><a href="/home/about" class="nav-link">About</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="room" id="dropdown04" data-toggle="dropdown"
-                           aria-haspopup="true" aria-expanded="false">Shop</a>
+                        aria-haspopup="true" aria-expanded="false">Shop</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown04">
                             <a class="dropdown-item" href="/home/shop">Shop</a>
                             <a class="dropdown-item" href="/home/product_single">Single Product</a>
@@ -161,7 +161,7 @@
                         <script>document.write(new Date().getFullYear());</script> All rights reserved | This template
                         is made with
                         <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com"
-                                                                            target="_blank">Colorlib</a>
+                        target="_blank">Colorlib</a>
                     </p>
                 </div>
             </div>
@@ -169,33 +169,34 @@
     </footer>
     @* chatbox *@
     <button id="iconButton" class="position-fixed btn btn-primary d-flex align-items-center justify-content-center"
-            style="right: 40px; bottom: 45px; width: 50px; height: 50px; border-radius: 50%;"
-            onclick="toggleIcon()">
+    style="right: 40px; bottom: 45px; width: 50px; height: 50px; border-radius: 50%;"
+    onclick="toggleIcon()">
         <i class="icon-chat_bubble text-white" style="font-size: 1.3rem;"></i>
     </button>
 
     <div id="showChatbot" class="d-none">
         <main id="app" class="position-fixed bg-dark border-0"
-              style="bottom: 130px; right: 40px; width: 420px; border-radius: 15px;">
+        style="bottom: 130px; right: 40px; width: 420px; border-radius: 15px;">
             <div class="shadow rounded-mt ">
                 <header class="bg-primary text-center text-white pt-2 rounded-top-3" style="border-top-right-radius: 15px;border-top-left-radius:15px;">
                     <h2>Chatbox</h2>
                 </header>
                 <ul class="list-unstyled overflow-hidden"
-                    style="height: 510px; padding: 15px 20px 70px; overflow-y: auto;">
+                style="height: 510px; padding: 15px 20px 70px; overflow-y: auto;">
                     <li v-for="message in messages" :key="message.id"
-                        class="d-flex mb-3"
-                        :class="{ 'justify-content-end': message.role === 'user', 'justify-content-start': message.role === 'assistant' }">
+                    class="d-flex mb-3"
+                    :class="{ 'justify-content-end': message.role === 'user', 'justify-content-start': message.role === 'assistant' }">
                         <div v-if="message.role === 'assistant'"
-                             class="flex-shrink-0 me-3">
+                        class="flex-shrink-0 me-3">
                             <img class="rounded-circle icon icon-chat"
-                                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTagONv1r-0HPnlnWClF12amS_KdrPX83zlhcXHyek&s"
-                                 width="32" height="32" alt="ChatGPT Icon">
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTagONv1r-0HPnlnWClF12amS_KdrPX83zlhcXHyek&s"
+                            width="32" height="32" alt="ChatGPT Icon">
                         </div>
                         <div class="flex-grow-1">
                             <p class="m-0 px-3 py-2 rounded"
-                               :class="message.role === 'assistant' ? 'bg-primary text-dark' : 'bg-primary text-white'">
-                                {{ message.content }}
+                               :class="message.role === 'assistant' ? 'bg-primary text-dark' : 'bg-primary text-white'" v-html="message.content">
+                                                               
+                                @* {{}} *@
                             </p>
                         </div>
                     </li>

@@ -26,6 +26,8 @@
     <Folder Include="Areas\admin\Data\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="wwwroot\admin\lib\elFinder\files\.trash\.gitkeep" />
+    <None Include="wwwroot\admin\lib\elFinder\php\.tmp\.htaccess" />
     <None Include="wwwroot\datahome\css\.DS_Store" />
     <None Include="wwwroot\datahome\css\bootstrap\.DS_Store" />
     <None Include="wwwroot\datahome\css\css\.DS_Store" />
