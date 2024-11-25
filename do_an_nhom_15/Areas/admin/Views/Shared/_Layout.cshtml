@@ -90,6 +90,10 @@
                     <a href="/admin/home/Chart" class="nav-item nav-link text-left d-block pr-5 @(currentUrl == "/admin/home/Chart" ? "active" : "")">
                         <i class="fa fa-chart-bar me-2 "></i>Charts
                     </a>
+                    <a href="/admin/AdminUsers/" class="nav-item nav-link text-left d-block @(currentUrl == "/admin/AdminUsers/" ? "active" : "")">
+                        <i class="fa fa-users me-2"></i>Admin
+                    </a>
+
                     <div class="nav-item dropdown @(currentUrl.ToString().Contains("/admin/home/") && (currentUrl == "/admin/home/Signin" || currentUrl == "/admin/home/Signup" || currentUrl == "/admin/home/Blank") ? "active" : "")">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Pages</a>
                         <div class="dropdown-menu bg-transparent border-0">
