@@ -23,6 +23,8 @@ namespace do_an_nhom_15.Areas.admin.Controllers
         public async Task<IActionResult> Index()
         {
             return View(await _context.AdminUsers.ToListAsync());
+
+
         }
 
         // GET: admin/AdminUsers/Details/5
