@@ -1,48 +1,14 @@
-## This is group project 15 
-
-This project i was install all model need to run 
 
 ## Prerequisites
 
-<!--Ensure you have the following:
+just make sure you have installed
 
-- A modern web browser (Chrome, Firefox, Safari, etc.)
-- A local web server (like Python's SimpleHTTPServer, Node's http-server, etc.). Or you can use Live Server feature from VSCode
-- An API key from OpenAI for API access. Or a laptop/PC with >4GB RAM
-
-**miss model**
-
-Follow the guide here to install llama_cpp Python <https://github.com/abetlen/llama-cpp-python>
-
-
- ## Start the app using OpenAI API
-
-1. **Start the local server**
-
-Navigate to the directory containing `index.html` and start your local server. For example, if you're using Python's SimpleHTTPServer, you can start it with the command:
-
-```bash
-python -m SimpleHTTPServer
-```
-
-If you're using Node's http-server, you can start it with the command:
-
-```bash
-http-server
-```
-
-2. **Access the application**
-
-Open your web browser and navigate to localhost on the port your server is running. For example, if your server is running on port 8000, you would navigate to `http://localhost:8000`.
-
-3. **Interact with the chat application**
-
-You should now see the chat interface in your browser. You can type messages into the input field and press "Send" to interact with the chatbot.
-
-Please note that this is a simple setup meant for local development and testing. It is not suitable for a production environment. -->
 cmake
+
 https://developer.nvidia.com/cuda-downloads
-python -m pip install llama-cpp-python --prefer-binary --no-cache-dir --extra-index-url=https://jllllll.github.io/llama-cpp-python-cuBLAS-wheels/AVX2/cu118
+
+
+
 ## Start the app using Local API
 
 1. **Download model**

@@ -22,7 +22,12 @@ namespace do_an_nhom_15.Areas.admin.Controllers
             if (result is JsonResult)
             {
                 var json = result as JsonResult;
-                return Content(JsonSerializer.Serialize(json?.Value), json?.ContentType);
+                //return Content(JsonSerializer.Serialize(json.Value), json.ContentType);
+                return Content(
+    JsonSerializer.Serialize(json.Value),
+    json.ContentType ?? "application/json" // Đặt giá trị mặc định nếu ContentType là null
+);
+
             }
             else
             {
