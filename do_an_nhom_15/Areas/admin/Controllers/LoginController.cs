@@ -19,6 +19,7 @@ namespace do_an_nhom_15.Areas.Admin.Controllers
             var checkUser = _context.AdminUsers.Where(u => (u.Username == username) && (u.Password == password)).FirstOrDefault();
             if (checkUser != null)
             {
+
                 var cookieOptions = new CookieOptions
                 {
                     Expires = DateTime.UtcNow.AddYears(1) 

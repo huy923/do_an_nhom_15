@@ -1,0 +1,46 @@
+﻿@model do_an_nhom_15.Models.AdminUser
+
+@{
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-4 mb-2">
+    <h2 class="text-center mb-4">Add New Admin</h2>
+    <form asp-action="Add">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="card shadow-sm bg-secondary text-white">
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="form-group mt-3">
+                                <label asp-for="Username" class="control-label">Account name</label>
+                                <input asp-for="Username" class="form-control" />
+                                <span asp-validation-for="Username" class="text-danger"></span>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label asp-for="Password" class="control-label">Password</label>
+                                <input asp-for="Password" type="password" class="form-control" />
+                                <span asp-validation-for="Password" class="text-danger"></span>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label asp-for="FullName" class="control-label">Full name</label>
+                                <input asp-for="FullName" class="form-control" />
+                                <span asp-validation-for="FullName" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <button type="submit" class="btn btn-primary" asp-action="Add">Add Admin</button>
+                            <a class="btn btn-outline-primary w-48" asp-action="Employee">Cancel</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
