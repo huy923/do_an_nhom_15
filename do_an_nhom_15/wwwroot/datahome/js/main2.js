@@ -1,4 +1,4 @@
-function toggleIcon() {
+﻿function toggleIcon() {
     const button = document.getElementById("iconButton");
     const icon = button.querySelector("i");
     const showChatbot = document.getElementById("showChatbot");
@@ -27,3 +27,17 @@ function lessQuantity() {
     quantityInput.value -= 1;
     syncQuantity();
 }
+
+    function updateQuantity() {
+        const quantityInput = document.getElementById("quantity");
+    const hiddenQuantity = document.getElementById("hiddenQuantity");
+
+    // Gán giá trị từ input vào hidden field
+    hiddenQuantity.value = quantityInput.value;
+    }
+
+    // Gọi hàm trước khi submit form
+    document.getElementById("addToCartForm").addEventListener("submit", function (e) {
+        updateQuantity();
+    });
+
