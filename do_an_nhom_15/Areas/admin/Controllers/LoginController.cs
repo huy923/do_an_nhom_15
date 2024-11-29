@@ -29,7 +29,7 @@ namespace do_an_nhom_15.Areas.Admin.Controllers
                 return RedirectToAction("Index", "Home", new { area = "Admin" });
             }
 
-            ViewBag.ErrorMessage = "Tên đăng nhập hoặc mật khẩu không đúng!";
+            ViewBag.ErrorMessage = "User or password is wrong!";
             return View("Index");
         }
 
