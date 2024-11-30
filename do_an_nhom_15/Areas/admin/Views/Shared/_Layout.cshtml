@@ -62,7 +62,6 @@
                     <a href="/admin/home/" class="nav-item nav-link @(currentUrl == "/admin/home/" ? "active" : "")">
                         <i class="fa fa-tachometer-alt me-2"></i>Dashboard
                     </a>
-                   
                     <a href="/admin/home/Button" class="nav-item nav-link  @(currentUrl == "/admin/home/Button" ? "active" : "")">
                         <i class="fa fa-coffee me-2"></i>Products
                     </a>
@@ -94,13 +93,6 @@
                         <i class="fa fa-users me-2"></i>Admin
                     </a>
 
-                    <div class="nav-item dropdown @(currentUrl.ToString().Contains("/admin/home/") && (currentUrl == "/admin/home/Signin" || currentUrl == "/admin/home/Signup" || currentUrl == "/admin/home/Blank") ? "active" : "")">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Pages</a>
-                        <div class="dropdown-menu bg-transparent border-0">
-                            <a href="/admin/login/Signin" class="dropdown-item">Sign In</a>
-                            <a href="/admin/home/Blank" class="dropdown-item">Blank Page</a>
-                        </div>
-                    </div>
                 </div>
 
             </nav>
