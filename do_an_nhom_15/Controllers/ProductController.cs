@@ -29,8 +29,7 @@ namespace do_an_nhom_15.Controllers
             ViewModel view = new()
             {
                 ProductList = [.. _context.Products],
-                SelectedProduct = product,
-                AddCart = new Cart()
+                SelectedProduct = product
             };
             return View(view);
         }

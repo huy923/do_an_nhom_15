@@ -1,0 +1,271 @@
+﻿
+<script>
+    function populate(s1, s2) {
+    var province = document.getElementById(s1);
+    var districtDatalist = document.getElementById(s2);
+
+    districtDatalist.innerHTML = "";
+
+    var optionArray = [];
+    if (province.value === "Hà Tĩnh") {
+    optionArray = [
+    "Thành phố Hà Tĩnh",
+    "Thị xã Hồng Lĩnh",
+    "Thị xã Kỳ Anh",
+    "Huyện Can Lộc",
+    "Huyện Cẩm Xuyên",
+    "Huyện Đức Thọ",
+    "Huyện Hương Khê",
+    "Huyện Hương Sơn",
+    "Huyện Kỳ Anh",
+    "Huyện Lộc Hà",
+    "Huyện Nghi Xuân",
+    "Huyện Thạch Hà",
+    "Huyện Vũ Quang"
+    ];
+    } else if (province.value === "Hà Nội") {
+    optionArray = [
+    "Quận Ba Đình",
+    "Quận Hoàn Kiếm",
+    "Quận Hai Bà Trưng",
+    "Quận Đống Đa"
+    ];
+    }
+
+    for (var i = 0; i < optionArray.length; i++) {
+    var newOption = document.createElement("option");
+    newOption.value = optionArray[i];
+    districtDatalist.appendChild(newOption);
+    }
+    }
+        function setCustomerAddress() {
+        const province = document.getElementById("slct1").value;
+        const district = document.getElementById("districtInput").value;
+        const StreetAddress = document.getElementById("StreetAddress").value;
+        const customerAddress = `${district}-${province}-${StreetAddress}`;
+        document.getElementById("customerAddress").value = customerAddress;
+    }
+</script>
+@model do_an_nhom_15.Models.ViewModel
+<section class="home-slider owl-carousel">
+
+    <div class="slider-item" style="background-image: url(/datahome/images/bg_3.jpg);" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row slider-text justify-content-center align-items-center">
+
+                <div class="col-md-7 col-sm-12 text-center ftco-animate">
+                    <h1 class="mb-3 mt-5 bread">Checkout</h1>
+                    <p class="breadcrumbs"><span class="mr-2"><a href="index">Home</a></span> <span>Checout</span></p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<section class="ftco-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-8 ftco-animate">
+                <form onsubmit="setCustomerAddress()" asp-action="Create" class="billing-form ftco-bg-dark p-3 p-md-5">
+                    <input type="hidden" asp-for="Order.OrderDate" value="" />
+                    <h3 class="mb-4 billing-heading">Billing Details</h3>
+                    <div class="row align-items-end">
+                        <div class="col-md">
+                            <div class="form-group">
+                                <label asp-for="Order.CustomerName" for="firstname">Name</label>
+                                <input asp-for="Order.CustomerName" type="text" class="form-control" style="color:white;">
+                            </div>
+                        </div>
+
+                        <div class="w-100"></div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="country">Select province/city</label>
+                                <div class="select-wrap text-while" style="position: relative;">
+                                    <input list="provinces" id="slct1" name="province" class="form-control"
+                                           style="color: #000; background-color: #f9f9f9; border: 1px solid #ccc; padding: 10px; border-radius: 5px; width: 100%;"
+                                           placeholder="-- Select province/city --" onchange="populate('slct1', 'districts')">
+                                    <datalist id="provinces" class="w-100">
+                                        <option value="" disabled selected>-- Select province/city --</option>
+                                        <option value="An Giang">An Giang</option>
+                                        <option value="Bà Rịa - Vũng Tàu">Bà Rịa - Vũng Tàu</option>
+                                        <option value="Bắc Giang">Bắc Giang</option>
+                                        <option value="Bắc Kạn">Bắc Kạn</option>
+                                        <option value="Bạc Liêu">Bạc Liêu</option>
+                                        <option value="Bắc Ninh">Bắc Ninh</option>
+                                        <option value="Bến Tre">Bến Tre</option>
+                                        <option value="Bình Định">Bình Định</option>
+                                        <option value="Bình Dương">Bình Dương</option>
+                                        <option value="Bình Phước">Bình Phước</option>
+                                        <option value="Bình Thuận">Bình Thuận</option>
+                                        <option value="Cà Mau">Cà Mau</option>
+                                        <option value="Cần Thơ">Cần Thơ</option>
+                                        <option value="Cao Bằng">Cao Bằng</option>
+                                        <option value="Đà Nẵng">Đà Nẵng</option>
+                                        <option value="Đắk Lắk">Đắk Lắk</option>
+                                        <option value="Đắk Nông">Đắk Nông</option>
+                                        <option value="Điện Biên">Điện Biên</option>
+                                        <option value="Đồng Nai">Đồng Nai</option>
+                                        <option value="Đồng Tháp">Đồng Tháp</option>
+                                        <option value="Gia Lai">Gia Lai</option>
+                                        <option value="Hà Giang">Hà Giang</option>
+                                        <option value="Hà Nam">Hà Nam</option>
+                                        <option value="Hà Nội">Hà Nội</option>
+                                        <option value="Hà Tĩnh">Hà Tĩnh</option>
+                                        <option value="Hải Dương">Hải Dương</option>
+                                        <option value="Hải Phòng">Hải Phòng</option>
+                                        <option value="Hậu Giang">Hậu Giang</option>
+                                        <option value="Hòa Bình">Hòa Bình</option>
+                                        <option value="Hưng Yên">Hưng Yên</option>
+                                        <option value="Khánh Hòa">Khánh Hòa</option>
+                                        <option value="Kiên Giang">Kiên Giang</option>
+                                        <option value="Kon Tum">Kon Tum</option>
+                                        <option value="Lai Châu">Lai Châu</option>
+                                        <option value="Lâm Đồng">Lâm Đồng</option>
+                                        <option value="Lạng Sơn">Lạng Sơn</option>
+                                        <option value="Lào Cai">Lào Cai</option>
+                                        <option value="Long An">Long An</option>
+                                        <option value="Nam Định">Nam Định</option>
+                                        <option value="Nghệ An">Nghệ An</option>
+                                        <option value="Ninh Bình">Ninh Bình</option>
+                                        <option value="Ninh Thuận">Ninh Thuận</option>
+                                        <option value="Phú Thọ">Phú Thọ</option>
+                                        <option value="Phú Yên">Phú Yên</option>
+                                        <option value="Quảng Bình">Quảng Bình</option>
+                                        <option value="Quảng Nam">Quảng Nam</option>
+                                        <option value="Quảng Ngãi">Quảng Ngãi</option>
+                                        <option value="Quảng Ninh">Quảng Ninh</option>
+                                        <option value="Quảng Trị">Quảng Trị</option>
+                                        <option value="Sóc Trăng">Sóc Trăng</option>
+                                        <option value="Sơn La">Sơn La</option>
+                                        <option value="Tây Ninh">Tây Ninh</option>
+                                        <option value="Thái Bình">Thái Bình</option>
+                                        <option value="Thái Nguyên">Thái Nguyên</option>
+                                        <option value="Thanh Hóa">Thanh Hóa</option>
+                                        <option value="Thừa Thiên Huế">Thừa Thiên Huế</option>
+                                        <option value="Tiền Giang">Tiền Giang</option>
+                                        <option value="TP Hồ Chí Minh">TP Hồ Chí Minh</option>
+                                        <option value="Trà Vinh">Trà Vinh</option>
+                                        <option value="Tuyên Quang">Tuyên Quang</option>
+                                        <option value="Vĩnh Long">Vĩnh Long</option>
+                                        <option value="Vĩnh Phúc">Vĩnh Phúc</option>
+                                        <option value="Yên Bái">Yên Bái</option>
+                                    </datalist>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="w-100"></div>
+                        <div class="col-md">
+                            <div class="form-group">
+                                <label for="district">District/City Area</label>
+                                <input list="districts" id="districtInput" name="district" class="form-control"
+                                       style="color: #000; background-color: #f9f9f9; border: 1px solid #ccc; padding: 10px; border-radius: 5px; width: 100%;"
+                                       placeholder="-- Select district/city area --">
+                                <datalist id="districts"></datalist>
+                            </div>
+                        </div>
+                        <div class="w-100"></div>
+                        <div class="col-md">
+                            <div class="form-group">
+                                <label for="towncity">Street address</label>
+                                <input type="text" id="StreetAddress" class="form-control" placeholder="">
+                            </div>
+                        </div>
+                        <div class="w-100"></div>
+                        <div class="col-md">
+                            <div class="form-group">
+                                <label asp-for="Order.CustomerPhone" for="phone">Phone</label>
+                                <input asp-for="Order.CustomerPhone" type="number" class="form-control">
+                            </div>
+                        </div>
+                        <input type="hidden" name="Order.CustomerAddress" asp-for="Order.CustomerAddress" id="customerAddress" />
+                        <div class="w-100"></div>
+                        <button class="btn btn-primary py-3 px-4 " asp-action="Create">Place an order</button>
+                    </div>
+                </form>
+            </div> <!-- .col-md-8 -->
+            <div class="col-xl-4 sidebar ftco-animate">
+                <div class="sidebar-box">
+                    <form action="#" class="search-form">
+                        <div class="form-group">
+                            <div class="icon">
+                                <span class="icon-search"></span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Search...">
+                        </div>
+                    </form>
+                </div>
+                <div class="sidebar-box ftco-animate">
+                    <div class="categories">
+                        <h3>Categories</h3>
+                        <li><a href="#">Tour <span>(12)</span></a></li>
+                        <li><a href="#">Hotel <span>(22)</span></a></li>
+                        <li><a href="#">Coffee <span>(37)</span></a></li>
+                        <li><a href="#">Drinks <span>(42)</span></a></li>
+                        <li><a href="#">Foods <span>(14)</span></a></li>
+                        <li><a href="#">Travel <span>(140)</span></a></li>
+                    </div>
+                </div>
+
+                <div class="sidebar-box ftco-animate">
+                    <h3>Recent Blog</h3>
+                    <div class="block-21 mb-4 d-flex">
+                        <a class="blog-img mr-4" style="background-image: url(/datahome/images/image_1.jpg);"></a>
+                        <div class="text">
+                            <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                            <div class="meta">
+                                <div><a href="#"><span class="icon-calendar"></span> July 12, 2018</a></div>
+                                <div><a href="#"><span class="icon-person"></span> Admin</a></div>
+                                <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block-21 mb-4 d-flex">
+                        <a class="blog-img mr-4" style="background-image: url(/datahome/images/image_2.jpg);"></a>
+                        <div class="text">
+                            <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                            <div class="meta">
+                                <div><a href="#"><span class="icon-calendar"></span> July 12, 2018</a></div>
+                                <div><a href="#"><span class="icon-person"></span> Admin</a></div>
+                                <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block-21 mb-4 d-flex">
+                        <a class="blog-img mr-4" style="background-image: url(/datahome/images/image_3.jpg);"></a>
+                        <div class="text">
+                            <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                            <div class="meta">
+                                <div><a href="#"><span class="icon-calendar"></span> July 12, 2018</a></div>
+                                <div><a href="#"><span class="icon-person"></span> Admin</a></div>
+                                <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-box ftco-animate">
+                    <h3>Tag Cloud</h3>
+                    <div class="tagcloud">
+                        <a href="#" class="tag-cloud-link">dish</a>
+                        <a href="#" class="tag-cloud-link">menu</a>
+                        <a href="#" class="tag-cloud-link">food</a>
+                        <a href="#" class="tag-cloud-link">sweet</a>
+                        <a href="#" class="tag-cloud-link">tasty</a>
+                        <a href="#" class="tag-cloud-link">delicious</a>
+                        <a href="#" class="tag-cloud-link">desserts</a>
+                        <a href="#" class="tag-cloud-link">drinks</a>
+                    </div>
+                </div>
+
+                <div class="sidebar-box ftco-animate">
+                    <h3>Paragraph</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur similique, inventore eos fugit cupiditate numquam!</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section> <!-- .section -->

@@ -13,6 +13,6 @@
         public List<Sale>? SaleList { get; set; }
         public List<Shift>? ShiftList { get; set; }
         public Product? SelectedProduct { get; set; }
-        public Cart? AddCart { get; set; }
+        public Order Order { get; set; } = new();
     }
 }
