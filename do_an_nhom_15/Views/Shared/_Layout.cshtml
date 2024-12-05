@@ -186,7 +186,6 @@
                             <p class="m-0 px-3 py-2 rounded"
                                :class="message.role === 'assistant' ? 'bg-primary text-dark' : 'bg-primary text-white'" v-html="message.content">
                                                                
-                                @* {{}} *@
                             </p>
                         </div>
                     </li>
@@ -222,8 +221,7 @@
                     {
                         role: "system",
                         content:
-                           // "You're a helpful chat bot. Answer short and concise in 150 tokens only.",
-                           "Hi there ",
+                            "You're a helpful chat bot. Answer short and concise in 150 tokens only.",
                     },
                 ]);
                 const isLoading = ref(false);

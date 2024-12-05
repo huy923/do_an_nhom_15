@@ -36,7 +36,9 @@ public partial class CoffeeShopDbContext : DbContext
     public virtual DbSet<Sale> Sales { get; set; }
 
     public virtual DbSet<Shift> Shifts { get; set; }
-    public DbSet<Order> Orders { get; set; }
+    public virtual DbSet<Order> Orders { get; set; }
+    public virtual DbSet<OrderDetail> OrderDetails { get; set; }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.UseSqlServer("name=DefaultConnection");
 

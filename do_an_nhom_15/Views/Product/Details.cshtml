@@ -49,7 +49,6 @@
                         </div>
                     </div>
                     <p>
-                        
                         <form asp-action="Add" method="post" id="addToCartForm">
                             <input type="hidden" name="ProductId" value="@Model.SelectedProduct.ProductId" />
                             <input type="hidden" id="hiddenQuantity" name="Quantity" value="1" />
@@ -57,7 +56,6 @@
                                 <p class="text-white">Add to Cart</p>
                             </button>
                         </form>
-
                     </p>
                 </div>
             </div>
@@ -76,7 +74,6 @@
                     </p>
                 </div>
             </div>
-
             <div class="row justify-content-center">
                 @foreach (var item in Model.ProductList.Take(4))
                 {
@@ -102,7 +99,6 @@
                     </div>
                 }
             </div>
-
         </div>
     </section>
 }

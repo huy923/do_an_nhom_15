@@ -12,6 +12,8 @@
         public List<Salary>? SalaryList { get; set; }
         public List<Sale>? SaleList { get; set; }
         public List<Shift>? ShiftList { get; set; }
+        public List<OrderDetail>? OrderDetailList { get; set; }
+        public List<Order>? OrderList { get; set; }
         public Product? SelectedProduct { get; set; }
         public Order Order { get; set; } = new();
     }

@@ -81,7 +81,6 @@ namespace do_an_nhom_15.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-
             _context.Employees.Remove(removeEmployee);
             _context.SaveChanges();
             return RedirectToAction("Index");

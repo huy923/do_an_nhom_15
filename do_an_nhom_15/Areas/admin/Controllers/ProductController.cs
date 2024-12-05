@@ -62,7 +62,7 @@ namespace do_an_nhom_15.Areas.admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Update(product);
+                _context.Products.Update(product);
                 _context.SaveChanges();
                 return RedirectToAction("Index");
             }
