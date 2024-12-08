@@ -18,5 +18,6 @@ namespace do_an_nhom_15.Controllers
             ViewBag.CartCount = _context.Carts.Sum(c => c.Quantity);
             base.OnActionExecuting(context);
         }
+
     }
 }

@@ -360,6 +360,7 @@ MigrationBackup/
 .vscode
 # Fody - auto-generated XML schema
 .venv/
+.venv-arch/
 /do_an_nhom_15/Models/Llama-3.2-1B-Instruct-Q6_K_L.gguf
 /Báo cáo word_Nhóm 15.docx
 .vscode/
