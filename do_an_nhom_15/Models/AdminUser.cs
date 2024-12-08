@@ -16,4 +16,6 @@ public partial class AdminUser
     public bool IsActive { get; set; }
 
     public DateTime CreatedAt { get; set; }
+
+    public virtual ICollection<Blog> Blogs { get; set; } = new List<Blog>();
 }

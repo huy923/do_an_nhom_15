@@ -23,9 +23,9 @@
                 @foreach (var product in Model.OrderList)
                 {
                     <tr class="table-dark" >
-                        <td>@product.CustomerName</td>
-                        <td>@product.CustomerAddress</td>
-                        <td>@product.CustomerPhone</td>
+                        <td>@product.Customer.Name</td>
+                        <td>@product.Customer.Address</td>
+                        <td>@product.Customer.Phone</td>
                         @{
                             decimal sumtotal = 0;
                         }
