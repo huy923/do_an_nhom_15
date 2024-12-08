@@ -36,6 +36,7 @@ namespace do_an_nhom_15.Areas.admin.Controllers
             }
             return RedirectToAction("Index");
         }
+
         public IActionResult Details(int id){
             var order = _context.Orders.Find(id);
             if(order == null){
