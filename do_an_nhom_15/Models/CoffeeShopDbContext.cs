@@ -272,8 +272,10 @@ public partial class CoffeeShopDbContext : DbContext
 
         modelBuilder.Entity<Order>(entity =>
         {
+            entity.ToTable("Order");
             entity.HasKey(e => e.OrderId).HasName("PK__Orders__C3905BCF50454249");
 
+<<<<<<< HEAD
             entity.ToTable("Order");
 
             entity.Property(e => e.CustomerAddress)
@@ -288,6 +290,13 @@ public partial class CoffeeShopDbContext : DbContext
                 .IsFixedLength()
                 .HasColumnName("customerPhone");
             entity.Property(e => e.OrderDate).HasColumnName("orderDate");
+=======
+            //entity.Property(e => e.OrderDate)
+            //    .HasDefaultValueSql("(getdate())")
+            //    .HasColumnType("datetime")
+            //    .HasColumnName("orderDate");
+
+>>>>>>> b1f2a760b93b161268ccccbfcf0af6a007fe3e29
         });
 
         modelBuilder.Entity<OrderDetail>(entity =>
@@ -309,6 +318,10 @@ public partial class CoffeeShopDbContext : DbContext
                 .HasConstraintName("FK__OrderDeta__produ__45F365D3");
         });
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> b1f2a760b93b161268ccccbfcf0af6a007fe3e29
         modelBuilder.Entity<Product>(entity =>
         {
             entity.HasKey(e => e.ProductId).HasName("PK__Products__B40CC6CD60FFA471");

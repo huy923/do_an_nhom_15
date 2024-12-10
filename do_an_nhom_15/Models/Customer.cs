@@ -16,4 +16,8 @@ public partial class Customer
     public string? Address { get; set; }
 
     public virtual ICollection<CommentBlog> CommentBlogs { get; set; } = new List<CommentBlog>();
+<<<<<<< HEAD
+=======
+
+>>>>>>> b1f2a760b93b161268ccccbfcf0af6a007fe3e29
 }

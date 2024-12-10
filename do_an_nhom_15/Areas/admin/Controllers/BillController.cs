@@ -35,9 +35,22 @@ namespace do_an_nhom_15.Areas.admin.Controllers
             }
             return RedirectToAction("Index");
         }
-        public IActionResult Detail(int id){
+
+        public IActionResult Details(int id){
             var order = _context.Orders.Find(id);
-            return View(order);
+            if(order == null){
+                return Error("Sorry this customer is not in data");
+            }
+            
+            ViewModel view = new(){
+                OrderDetailList = [.. _context.OrderDetails.Where(p => p.OrderId == id).Include(od => od.Product)],
+                Order = order
+            };
+            return View(view);
+        }
+        private IActionResult Error(string v)
+        {
+            throw new NotImplementedException();
         }
     }
 }
