@@ -33,7 +33,7 @@
 								<div><a href="#" class="meta-chat"><span class="icon-chat"></span>@item.CommentBlogs.Count()</a></div>
 							</div>
 							<h3 class="heading mt-2"><a href="@url">@item.Title</a></h3>
-							<p>@item.Description</p>
+							<p>@Html.Raw(item.Description)</p>
 						</div>
 					</div>
 				</div>

@@ -37,8 +37,6 @@ public partial class CoffeeShopDbContext : DbContext
 
     public virtual DbSet<OrderDetail> OrderDetails { get; set; }
 
-    public virtual DbSet<Payment> Payments { get; set; }
-
     public virtual DbSet<Product> Products { get; set; }
 
     public virtual DbSet<Role> Roles { get; set; }
@@ -274,18 +272,14 @@ public partial class CoffeeShopDbContext : DbContext
 
         modelBuilder.Entity<Order>(entity =>
         {
+            entity.ToTable("Order");
             entity.HasKey(e => e.OrderId).HasName("PK__Orders__C3905BCF50454249");
 
-            entity.Property(e => e.CustomerId).HasColumnName("customer_id");
-            entity.Property(e => e.OrderDate)
-                .HasDefaultValueSql("(getdate())")
-                .HasColumnType("datetime")
-                .HasColumnName("order_date");
+            //entity.Property(e => e.OrderDate)
+            //    .HasDefaultValueSql("(getdate())")
+            //    .HasColumnType("datetime")
+            //    .HasColumnName("orderDate");
 
-            entity.HasOne(d => d.Customer).WithMany(p => p.Orders)
-                .HasForeignKey(d => d.CustomerId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Orders__customer__4222D4EF");
         });
 
         modelBuilder.Entity<OrderDetail>(entity =>
@@ -293,9 +287,6 @@ public partial class CoffeeShopDbContext : DbContext
             entity.HasKey(e => e.OrderDetailId).HasName("PK__OrderDet__D3B9D36C26FF4103");
 
             entity.Property(e => e.OrderId).HasColumnName("order_id");
-            entity.Property(e => e.Price)
-                .HasColumnType("decimal(10, 2)")
-                .HasColumnName("price");
             entity.Property(e => e.ProductId).HasColumnName("product_id");
             entity.Property(e => e.Quantity).HasColumnName("quantity");
 
@@ -310,21 +301,6 @@ public partial class CoffeeShopDbContext : DbContext
                 .HasConstraintName("FK__OrderDeta__produ__45F365D3");
         });
 
-        modelBuilder.Entity<Payment>(entity =>
-        {
-            entity.HasKey(e => e.PaymentId).HasName("PK__Payments__9B556A38120FEFD4");
-
-            entity.Property(e => e.OrderId).HasColumnName("order_id");
-            entity.Property(e => e.PaymentDate)
-                .HasDefaultValueSql("(getdate())")
-                .HasColumnType("datetime")
-                .HasColumnName("payment_date");
-
-            entity.HasOne(d => d.Order).WithMany(p => p.Payments)
-                .HasForeignKey(d => d.OrderId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Payments__order___49C3F6B7");
-        });
 
         modelBuilder.Entity<Product>(entity =>
         {

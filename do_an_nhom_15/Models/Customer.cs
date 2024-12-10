@@ -17,5 +17,4 @@ public partial class Customer
 
     public virtual ICollection<CommentBlog> CommentBlogs { get; set; } = new List<CommentBlog>();
 
-    public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
 }
