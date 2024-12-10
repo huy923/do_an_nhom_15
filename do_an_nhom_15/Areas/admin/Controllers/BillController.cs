@@ -15,7 +15,7 @@ namespace do_an_nhom_15.Areas.admin.Controllers
 
             if (!string.IsNullOrEmpty(searchTerm))
             {
-                order = order.Where(p => p.Customer.Name.Contains(searchTerm));
+                order = order.Where(p => p.CustomerName.Contains(searchTerm));
             }
             ViewModel view = new()
             {

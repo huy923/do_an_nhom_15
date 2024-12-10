@@ -7,13 +7,13 @@ public partial class Order
 {
     public int OrderId { get; set; }
 
-    public int CustomerId { get; set; }
+    public string? CustomerName { get; set; }
 
-    public DateTime? OrderDate { get; set; }
+    public string? CustomerPhone { get; set; }
 
-    public virtual Customer Customer { get; set; } = null!;
+    public string? CustomerAddress { get; set; }
+
+    public DateOnly? OrderDate { get; set; }
 
     public virtual ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
-
-    public virtual ICollection<Payment> Payments { get; set; } = new List<Payment>();
 }

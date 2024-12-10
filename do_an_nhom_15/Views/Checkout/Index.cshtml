@@ -73,8 +73,8 @@
                     <div class="row align-items-end">
                         <div class="col-md">
                             <div class="form-group">
-                                <label asp-for="Order.Customer.Name" for="firstname">Name</label>
-                                <input asp-for="Order.Customer.Name" type="text" class="form-control" style="color:white;">
+                                <label asp-for="Order.CustomerName" for="firstname">Name</label>
+                                <input asp-for="Order.CustomerName" type="text" class="form-control" style="color:white;">
                             </div>
                         </div>
 
@@ -176,13 +176,13 @@
                         <div class="w-100"></div>
                         <div class="col-md">
                             <div class="form-group">
-                                <label asp-for="Order.Customer.Phone" for="phone">Phone</label>
-                                <input asp-for="Order.Customer.Phone" type="number" class="form-control">
+                                <label asp-for="Order.CustomerPhone" for="phone">Phone</label>
+                                <input asp-for="Order.CustomerPhone" type="number" class="form-control">
                             </div>
                         </div>
-                        <input type="hidden" name="Order.Customer.Address" asp-for="Order.Customer.Address" id="customerAddress" />
+                        <input type="hidden" name="Order.Customer.Address" asp-for="Order.CustomerAddress" id="customerAddress" />
                         <div class="w-100"></div>
-                        <button class="btn btn-primary py-3 px-4 " asp-action="Create">Place an order</button>
+                        <button class="btn btn-primary py-3 px-4 " type="submit" asp-action="Create">Place an order</button>
                     </div>
                 </form>
             </div> 
