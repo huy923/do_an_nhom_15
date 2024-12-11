@@ -2,7 +2,6 @@ using do_an_nhom_15.Models;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
-//new commit
 // Add services to the container.
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 builder.Services.AddDbContext<CoffeeShopDbContext>(options =>
