@@ -1,0 +1,68 @@
+﻿@model IEnumerable<do_an_nhom_15.Models.Blog>
+
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Table Start -->
+<div class="container-fluid pt-4 px-4">
+	<div class="row g-4">
+		<div class="col-sm-12 col-xl-12">
+			<div class="bg-secondary rounded h-100 p-4">
+				<h6 class="mb-4">Blog manager</h6>
+				<a asp-action="Create">Create New</a>
+
+				<table class="table table-hover ">
+					<thead>
+						<tr>
+							<th scope="col"></th>
+							<th scope="col">Title</th>
+							<th scope="col">Description</th>
+							<th scope="col">Create time</th>
+							<th scope="col">Create by</th>
+							<th scope="col">Image</th>
+							<th scope="col" class="col-3"></th>
+						</tr>
+					</thead>
+					<tbody>
+						@{
+							int stt = 0;
+						}
+						@foreach (var item in Model)
+						{
+							stt += 1;
+							<tr>
+								<td>
+									@stt
+								</td>
+								<td>
+									@Html.DisplayFor(modelItem => item.Title)
+								</td>
+								<td>
+									@Html.DisplayFor(modelItem => item.Description)
+								</td>
+								<td>
+									@Html.DisplayFor(modelItem => item.Time)
+								</td>
+								<td>
+									@Html.DisplayFor(modelItem => item.Admin.FullName)
+								</td>
+								<td>
+									<img src="@Html.DisplayFor(modelItem => item.Image)" alt="Alternate Text" width="100" height="50" />
+								</td>
+								<td>
+									<a class="btn btn btn-outline-info" asp-action="Edit" asp-route-id="@item.BlogId">Edit</a> |
+									<a class="btn btn btn-outline-warning" asp-action="Details" asp-route-id="@item.BlogId">Details</a> |
+									<a class="btn btn btn-outline-primary" asp-action="Delete" asp-route-id="@item.BlogId">Delete</a>
+								</td>
+							</tr>
+						}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Table End -->
+

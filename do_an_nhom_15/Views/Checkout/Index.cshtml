@@ -180,9 +180,13 @@
                                 <input asp-for="Order.CustomerPhone" type="number" class="form-control">
                             </div>
                         </div>
+<<<<<<< HEAD
+                        <input type="hidden" name="Order.Customer.Address" asp-for="Order.CustomerAddress" id="customerAddress" />
+=======
                         <input type="hidden" name="Order.CustomerAddress" asp-for="Order.CustomerAddress" id="customerAddress" />
+>>>>>>> b1f2a760b93b161268ccccbfcf0af6a007fe3e29
                         <div class="w-100"></div>
-                        <button class="btn btn-primary py-3 px-4 " asp-action="Create">Place an order</button>
+                        <button class="btn btn-primary py-3 px-4 " type="submit" asp-action="Create">Place an order</button>
                     </div>
                 </form>
             </div> 

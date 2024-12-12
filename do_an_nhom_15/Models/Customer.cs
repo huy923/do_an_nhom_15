@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace do_an_nhom_15.Models;
@@ -16,5 +16,4 @@ public partial class Customer
     public string? Address { get; set; }
 
     public virtual ICollection<CommentBlog> CommentBlogs { get; set; } = new List<CommentBlog>();
-
 }
