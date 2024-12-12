@@ -8,13 +8,5 @@ namespace do_an_nhom_15.Areas
     {
         private readonly CoffeeShopDbContext _context = context;
         public IActionResult Index() { return View(); }
-        public IActionResult Button() { return View(); }
-        public IActionResult Typography() { return View(); }
-        public IActionResult Widget() { return View(); }
-        public IActionResult Table() { return View(); }
-        public IActionResult Form() { return View(); }
-        public IActionResult Element() { return View(); }
-        public IActionResult Chart() { return View(); }
-        public IActionResult Blank() { return View(); }
     }
 }
