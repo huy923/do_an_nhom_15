@@ -40,10 +40,10 @@
                         <td>@product.Product.Price</td>
                         <td>@((int?)product.Product.Discount)%</td>
                         <td>@product.Quantity</td>
-                        <td class="d-flex">
+                        <td class="d-flex d-black">
                             <a asp-action="Edit" asp-route-id="@product.ProductId" class="btn btn-sm btn-warning">Edit</a>
                             <form asp-action="Remove" asp-route-id="@product.ProductId" method="post" style="display:inline;" onsubmit="return confirm('Are you sure you want to delete this product?');">
-                                <button type="submit" class="btn btn-sm btn-danger">Delete asdf</button>
+                                <button type="submit" class="btn btn-sm btn-danger">Delete</button>
                             </form>
                         </td>
 
