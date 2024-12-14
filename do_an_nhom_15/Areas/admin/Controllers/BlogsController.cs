@@ -6,11 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using do_an_nhom_15.Models;
-
+using do_an_nhom_15.Areas.Admin.Controllers;
 namespace do_an_nhom_15.Areas.admin.Controllers
 {
     [Area("admin")]
-    public class BlogsController : Controller
+    public class BlogsController : AdminBaseController
     {
         private readonly CoffeeShopDbContext _context;
 

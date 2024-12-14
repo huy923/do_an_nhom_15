@@ -46,7 +46,7 @@
         document.getElementById("customerAddress").value = customerAddress;
     }
 </script>
-@model do_an_nhom_15.Models.ViewModel
+@model do_an_nhom_15.Models.Order
 <section class="home-slider owl-carousel">
 
     <div class="slider-item" style="background-image: url(/datahome/images/bg_3.jpg);" data-stellar-background-ratio="0.5">
@@ -66,15 +66,15 @@
         <div class="row">
             <div class="col-xl-8 ftco-animate">
                 <form onsubmit="setCustomerAddress()" asp-action="Create" class="billing-form ftco-bg-dark p-3 p-md-5">
-                    @* <input type="hidden" asp-for="Order.OrderDate" value="" />  *@
-                     <input type="hidden" asp-for="Order.OrderId" value="" /> 
+                    @* <input type="hidden" asp-for="OrderDate" value="" /> *@
+                    @* <input type="hidden" asp-for="OrderId" value="" /> *@
 
                     <h3 class="mb-4 billing-heading">Billing Details</h3>
                     <div class="row align-items-end">
                         <div class="col-md">
                             <div class="form-group">
-                                <label asp-for="Order.CustomerName" for="firstname">Name</label>
-                                <input asp-for="Order.CustomerName" type="text" class="form-control" style="color:white;">
+                                <label asp-for="CustomerName" for="firstname">Name</label>
+                                <input asp-for="CustomerName" type="text" class="form-control" style="color:white;">
                             </div>
                         </div>
 
@@ -176,20 +176,16 @@
                         <div class="w-100"></div>
                         <div class="col-md">
                             <div class="form-group">
-                                <label asp-for="Order.CustomerPhone" for="phone">Phone</label>
-                                <input asp-for="Order.CustomerPhone" type="number" class="form-control">
+                                <label asp-for="CustomerPhone" for="phone">Phone</label>
+                                <input asp-for="CustomerPhone" type="number" class="form-control">
                             </div>
                         </div>
-<<<<<<< HEAD
-                        <input type="hidden" name="Order.Customer.Address" asp-for="Order.CustomerAddress" id="customerAddress" />
-=======
-                        <input type="hidden" name="Order.CustomerAddress" asp-for="Order.CustomerAddress" id="customerAddress" />
->>>>>>> b1f2a760b93b161268ccccbfcf0af6a007fe3e29
+                        <input type="hidden" name="CustomerAddress" asp-for="CustomerAddress" id="customerAddress" />
                         <div class="w-100"></div>
                         <button class="btn btn-primary py-3 px-4 " type="submit" asp-action="Create">Place an order</button>
                     </div>
                 </form>
-            </div> 
+            </div>
             <div class="col-xl-4 sidebar ftco-animate">
                 <div class="sidebar-box">
                     <form action="#" class="search-form">
@@ -272,4 +268,4 @@
 
         </div>
     </div>
-</section> 
+</section>

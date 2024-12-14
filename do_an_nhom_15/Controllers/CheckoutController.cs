@@ -38,8 +38,6 @@ namespace do_an_nhom_15.Controllers
                         _context.Products.Update(product);
                     }
                 }
-
-
                 _context.SaveChanges();
                 return RedirectToAction("Index", "Home");
             }
