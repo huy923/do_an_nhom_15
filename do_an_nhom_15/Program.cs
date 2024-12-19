@@ -1,6 +1,5 @@
 using do_an_nhom_15.Models;
 using Microsoft.EntityFrameworkCore;
-
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
@@ -14,7 +13,18 @@ builder.Services.AddSession(options =>
     options.Cookie.IsEssential = true;
 });
 
+
 var app = builder.Build();
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<CoffeeShopDbContext>();
+    var carts = context.Carts.ToList();
+    if (carts != null)
+    {
+        context.Carts.RemoveRange(carts);
+        context.SaveChanges();
+    }
+}
 
 if (!app.Environment.IsDevelopment())
 {
