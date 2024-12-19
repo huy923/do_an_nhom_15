@@ -10,14 +10,9 @@ using do_an_nhom_15.Areas.Admin.Controllers;
 namespace do_an_nhom_15.Areas.admin.Controllers
 {
     [Area("admin")]
-    public class BlogsController : AdminBaseController
+    public class BlogsController(CoffeeShopDbContext context) : AdminBaseController
     {
-        private readonly CoffeeShopDbContext _context;
-
-        public BlogsController(CoffeeShopDbContext context)
-        {
-            _context = context;
-        }
+        private readonly CoffeeShopDbContext _context = context;
 
         // GET: admin/Blogs
         public async Task<IActionResult> Index()

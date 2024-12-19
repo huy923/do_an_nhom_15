@@ -60,59 +60,6 @@ namespace do_an_nhom_15.Controllers
             return Json(new { success = false, message = "Failed to add product to cart. Please check your input." });
         }
 
-
-
-        // GET: Cart/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var cart = await _context.Carts.FindAsync(id);
-            if (cart == null)
-            {
-                return NotFound();
-            }
-            ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ProductId", cart.ProductId);
-            return View(cart);
-        }
-
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CartId,ProductId,Quantity")] Cart cart)
-        {
-            if (id != cart.CartId)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(cart);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!CartExists(cart.CartId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ProductId", cart.ProductId);
-            return View(cart);
-        }
-
         // GET: Cart/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -151,5 +98,25 @@ namespace do_an_nhom_15.Controllers
         {
             return _context.Carts.Any(e => e.CartId == id);
         }
+        [HttpPost]
+        public IActionResult Edit(int id, int Quantity)
+        {
+            var cart = _context.Carts.Find(id);
+            if (cart != null)
+            {
+                // Validate the quantity
+                if (Quantity < 1 || Quantity > 100)
+                {
+                    ModelState.AddModelError("Quantity", "Quantity must be between 1 and 100.");
+                    return RedirectToAction("Index");
+                }
+
+                cart.Quantity = Quantity;
+                _context.Carts.Update(cart);
+                _context.SaveChanges();
+            }
+            return RedirectToAction("Index");
+        }
+
     }
 }
