@@ -27,6 +27,16 @@ namespace do_an_nhom_15.Areas.admin.Controllers
         [HttpPost]
         public IActionResult Remove(int id)
         {
+            var orderDetails = _context.OrderDetails.Where(c => c.OrderId == id).ToList();
+            if (orderDetails.Count != 0)
+            {
+                foreach (var item in orderDetails)
+                {
+                    _context.OrderDetails.Remove(item);
+                }
+                _context.SaveChanges();
+            }
+
             var order = _context.Orders.Find(id);
             if (order != null)
             {

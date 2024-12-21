@@ -16,7 +16,7 @@ namespace do_an_nhom_15.Controllers
         {
             if (ModelState.IsValid)
             {
-                order.OrderDate = DateTime.Now;
+                order.OrderDate = DateOnly.FromDateTime(DateTime.Now);
                 _context.Orders.Add(order);
                 _context.SaveChanges();
                 foreach (var item in _context.Carts.ToList())
