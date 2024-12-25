@@ -25,8 +25,6 @@ public partial class CoffeeShopDbContext : DbContext
 
     public virtual DbSet<CommentBlog> CommentBlogs { get; set; }
 
-    public virtual DbSet<Customer> Customers { get; set; }
-
     public virtual DbSet<Employee> Employees { get; set; }
 
     public virtual DbSet<Feedback> Feedbacks { get; set; }
@@ -49,12 +47,12 @@ public partial class CoffeeShopDbContext : DbContext
 
     public virtual DbSet<TbContact> TbContacts { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer("Name=DefaultConnection");
+//    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
+//        => optionsBuilder.UseSqlServer("data source=DESKTOP-B0D0J2Q;initial catalog=CoffeeShopDB;integrated security=True;TrustServerCertificate=True;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-
         modelBuilder.Entity<AdminUser>(entity =>
         {
             entity.HasKey(e => e.AdminId).HasName("PK__AdminUse__719FE488AEA4D148");
@@ -126,42 +124,12 @@ public partial class CoffeeShopDbContext : DbContext
         {
             entity.ToTable("CommentBlog");
 
+            entity.Property(e => e.Name).HasMaxLength(50);
             entity.Property(e => e.Time).HasColumnType("datetime");
 
             entity.HasOne(d => d.Blog).WithMany(p => p.CommentBlogs)
                 .HasForeignKey(d => d.BlogId)
                 .HasConstraintName("FK_CommentBlog_Blog");
-
-            entity.HasOne(d => d.Customer).WithMany(p => p.CommentBlogs)
-                .HasForeignKey(d => d.CustomerId)
-                .HasConstraintName("FK_CommentBlog_Customers");
-        });
-
-        modelBuilder.Entity<Customer>(entity =>
-        {
-            entity.HasKey(e => e.CustomerId).HasName("PK__Customer__A4AE64D88A69209F");
-
-            entity.ToTable(tb => tb.HasTrigger("trg_CustomerId"));
-
-            entity.HasIndex(e => e.Email, "UQ__Customer__AB6E61649F776655").IsUnique();
-
-            entity.Property(e => e.CustomerId).ValueGeneratedNever();
-            entity.Property(e => e.Address)
-                .HasMaxLength(255)
-                .IsUnicode(false)
-                .HasColumnName("address");
-            entity.Property(e => e.Email)
-                .HasMaxLength(100)
-                .IsUnicode(false)
-                .HasColumnName("email");
-            entity.Property(e => e.Name)
-                .HasMaxLength(100)
-                .IsUnicode(false)
-                .HasColumnName("name");
-            entity.Property(e => e.Phone)
-                .HasMaxLength(15)
-                .IsUnicode(false)
-                .HasColumnName("phone");
         });
 
         modelBuilder.Entity<Employee>(entity =>
@@ -414,6 +382,17 @@ public partial class CoffeeShopDbContext : DbContext
             entity.HasOne(d => d.Employee).WithMany(p => p.Shifts)
                 .HasForeignKey(d => d.EmployeeId)
                 .HasConstraintName("FK__shifts__employee__693CA210");
+        });
+
+        modelBuilder.Entity<TbContact>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__tbContac__3213E83F897573DC");
+
+            entity.ToTable("tbContact");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.Email).HasMaxLength(200);
+            entity.Property(e => e.Name).HasMaxLength(100);
         });
 
         OnModelCreatingPartial(modelBuilder);

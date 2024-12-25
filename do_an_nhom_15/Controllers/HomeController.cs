@@ -42,12 +42,27 @@ namespace do_an_nhom_15.Controllers
         [Route("/Home/blog/{id}.html")]
         public IActionResult Blog_single(int id)
         {
-          var item = _context.Blogs.Include(i => i.CommentBlogs).ThenInclude(i=>i.Customer).Include(i => i.Admin).Where(i=>i.BlogId == id).FirstOrDefault();
+          var item = _context.Blogs.Include(i => i.CommentBlogs).Include(i => i.Admin).Where(i=>i.BlogId == id).FirstOrDefault();
             ViewData["Blog"] = _context.Blogs.Include(i=>i.Admin).Include(i=>i.CommentBlogs).Where(i=>i.BlogId != id).OrderDescending().Take(3).ToList();
             return View("Blog_single", item);
         }
         public IActionResult Shop() { return View(); }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error() { return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier }); }
+
+        public  IActionResult Comment(int idblog, string name, string comment)
+        {
+            CommentBlog cmt = new CommentBlog();    
+            cmt.Time = DateTime.Now;
+            cmt.Name = name;
+            cmt.Comment = comment;
+            cmt.BlogId = idblog;
+
+            _context.Add(cmt);
+            _context.SaveChangesAsync();
+
+            string url = $"/home/blog/{idblog}.html";
+            return Redirect(url);
+        }
     }
 }
