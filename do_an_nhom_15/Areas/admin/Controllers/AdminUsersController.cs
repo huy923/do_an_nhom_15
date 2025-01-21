@@ -59,6 +59,14 @@ namespace do_an_nhom_15.Areas.admin.Controllers
         public async Task<IActionResult> Add([Bind("AdminId,Username,Password,FullName,IsActive,CreatedAt")] AdminUser adminUser)
         {
             adminUser.IsActive = true;
+
+            var existingUser = await _context.AdminUsers.FirstOrDefaultAsync(u => u.Username == adminUser.Username);
+            if (existingUser != null)
+            {
+                ModelState.AddModelError("Username", "usesr name is have is ");
+                return View(adminUser);
+            }
+
             if (ModelState.IsValid)
             {
                 _context.Add(adminUser);
@@ -67,6 +75,7 @@ namespace do_an_nhom_15.Areas.admin.Controllers
             }
             return View(adminUser);
         }
+
 
         // GET: admin/AdminUsers/Edit/5
         public async Task<IActionResult> Edit(int? id)

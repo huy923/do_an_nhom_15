@@ -74,28 +74,32 @@
                 </div>
             </div>
             <div class="row justify-content-center">
-                @foreach (var item in Model.ProductList.Take(4))
+                @if (Model.ProductList != null)
                 {
-                    string sUrl = $"/product/{item.Name}-{item.ProductId}.html";
-                    <div class="col-md-3 col-sm-6 mb-4">
-                        <a href="@sUrl" class=" shadow-sm text-decoration-none">
-                            <div class="menu-entry">
-                                <img src="@item.ImageUrl" class="card-img-top"
-                                     style="height: 200px; width: 100%; border-radius: 8px;" />
-                                <div class="card-body text-center">
-                                    <h5 class="card-title text-white">@item.Name</h5>
-                                    <p class="price text-white font-weight-bold"><span>$@item.Price</span></p>
+
+                    @foreach (var item in Model.ProductList.Take(4))
+                    {
+                        string sUrl = $"/product/{item.Name}-{item.ProductId}.html";
+                        <div class="col-md-3 col-sm-6 mb-4">
+                            <a href="@sUrl" class=" shadow-sm text-decoration-none">
+                                <div class="menu-entry">
+                                    <img src="@item.ImageUrl" class="card-img-top"
+                                         style="height: 200px; width: 100%; border-radius: 8px;" />
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title text-white">@item.Name</h5>
+                                        <p class="price text-white font-weight-bold"><span>$@item.Price</span></p>
+                                    </div>
                                 </div>
+                            </a>
+                            <div class="d-flex justify-content-center mt-2">
+                                <form asp-action="Add" method="post">
+                                    <input type="hidden" name="ProductId" value="@item.ProductId" />
+                                    <input type="hidden" id="hiddenQuantity" name="Quantity" value="1" />
+                                    <button type="submit" class="btn btn-sm btn-primary">Add to Cart</button>
+                                </form>
                             </div>
-                        </a>
-                        <div class="d-flex justify-content-center mt-2">
-                            <form asp-action="Add" method="post">
-                                <input type="hidden" name="ProductId" value="@item.ProductId" />
-                                <input type="hidden" id="hiddenQuantity" name="Quantity" value="1" />
-                                <button type="submit" class="btn btn-sm btn-primary">Add to Cart</button>
-                            </form>
                         </div>
-                    </div>
+                    }
                 }
             </div>
         </div>

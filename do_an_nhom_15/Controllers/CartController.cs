@@ -55,9 +55,9 @@ namespace do_an_nhom_15.Controllers
             {
                 _context.Carts.Add(cart);
                 _context.SaveChanges();
-                return Json(new { success = true, message = "Product added to cart successfully!" });
+                return RedirectToAction("index");
             }
-            return Json(new { success = false, message = "Failed to add product to cart. Please check your input." });
+            return View(cart);
         }
 
         // GET: Cart/Delete/5
@@ -104,7 +104,6 @@ namespace do_an_nhom_15.Controllers
             var cart = _context.Carts.Find(id);
             if (cart != null)
             {
-                // Validate the quantity
                 if (Quantity < 1 || Quantity > 100)
                 {
                     ModelState.AddModelError("Quantity", "Quantity must be between 1 and 100.");
